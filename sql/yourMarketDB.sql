@@ -65,7 +65,6 @@ CREATE TABLE `Cart`(
 
 ALTER TABLE `_order` ADD FOREIGN KEY (`email`) REFERENCES `User` (`email`);
 ALTER TABLE `Bill_info` ADD FOREIGN KEY (`email`) REFERENCES `User` (`email`);
-ALTER TABLE `User` ADD FOREIGN KEY (`id_billInfo`) REFERENCES `Bill_info` (`id_billInfo`);
 ALTER TABLE `_order` ADD FOREIGN KEY (`id_item`) REFERENCES `Item` (`id_item`);
 ALTER TABLE `Item` ADD FOREIGN KEY (`seller_id`) REFERENCES `User` (`email`);
 ALTER TABLE `Item` ADD FOREIGN KEY (`customer_id`) REFERENCES `User` (`email`);
