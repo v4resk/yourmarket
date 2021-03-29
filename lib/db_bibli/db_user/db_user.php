@@ -2,7 +2,7 @@
 
 class db_user{
 
-	private $db;
+	
 	private $email;
 	private $name;
 	private $firstName;
@@ -20,6 +20,7 @@ class db_user{
 	private $phone;
 
 	private function hydrate($user_data){
+		
 		if(isset($user_data['name'])){
 			$this->name = $user_data['name'];
 		}
@@ -70,54 +71,54 @@ class db_user{
 			while ($data_user = $query_resp->fetch(PDO::FETCH_ASSOC)) {
 				$this->hydrate($data_user);
 			}
+			$this->email = $email;
 		}
 	}
 
-	public function getNameByEmail(){
+	public function getName(){
 		return $this->name;
 	}
-	public function getFirstNameByEmail(){
-		return $firstName;
+	public function getFirstName(){
+		return $this->firstName;
 	}
-	public function getDateOfBirthByEmail(){
-		return $dateOfBirth;
+	public function getDateOfBirth(){
+		return $this->dateOfBirth;
 	}
-	public function getPasswdByEmail(){
-		return $passwd;
+	public function getPasswd(){
+		return $this->passwd;
 	}
-	public function getWhoAmIByEmail(){
-		return $whoAmI;
+	public function getWhoAmI(){
+		return $this->whoAmI;
 	}
-	public function getIdBillInfoByEmail(){
-		return $idBillInfo;
+	public function getIdBillInfo(){
+		return $this->idBillInfo;
 	}
-	public function getFavBackgroundNoByEmail(){
-		return $favBackgroundNo;
+	public function getFavBackgroundNo(){
+		return $this->favBackgroundNo;
 	}
-	public function getPhotoIdByEmail(){
-		return $photoId;
+	public function getPhotoId(){
+		return $this->photoId;
 	}
-	public function getAddr1ByEmail(){
-		return $addr1;
+	public function getAddr1(){
+		return $this->addr1;
 	}
-	public function getAddr2ByEmail(){
-		return $addr2;
+	public function getAddr2(){
+		return $this->addr2;
 	}
-	public function getCityByEmail(){
-		return $city;
+	public function getCity(){
+		return $this->city;
 	}
-	public function getZipByEmail(){
-		return $zip;
+	public function getZip(){
+		return $this->zip;
 	}
-	public function getCountryByEmail(){
-		return $country;
+	public function getCountry(){
+		return $this->country;
 	}
-	public function getPhoneByEmail(){
-		return $phone;
+	public function getPhone(){
+		return $this->phone;
 	}
 	public function hasPasswd($pass){
 		return $isPassGood = ($pass == $this->passwd) true : false;
 	}
 }
-
 ?>

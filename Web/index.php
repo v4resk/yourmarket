@@ -6,7 +6,7 @@
 </head>
 <body>
 	<?php
-		require '../lib/db_bibli/db_user/db_getUserFromEmail.php';
+		require '../lib/db_bibli/db_user/db_user.php';
 		try{
 				$local = "localhost";
 				$dbname = "yourMarketDB";
