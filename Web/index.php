@@ -20,7 +20,7 @@
 			}
 
 		$userTest = new db_user($db,'lucas.heurtin@free.fr');
-		echo $userTest->getNameByEmail();
+		echo $userTest->getName();
 
 	 ?>
 </body>

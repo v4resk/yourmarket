@@ -12,7 +12,7 @@ CREATE TABLE `User` (
   `id_billInfo` INT NOT NULL,
   `fav_background_number` INT NOT NULL DEFAULT 0,
   `photo_id` VARCHAR(20) NOT NULL DEFAULT '000',
-  `adrr1` VARCHAR(30) NOT NULL,
+  `addr1` VARCHAR(30) NOT NULL,
   `addr2` VARCHAR(30),
   `city` VARCHAR(20) NOT NULL,
   `postal_code` VARCHAR(10) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE `Bill_info` (
   `card_number` VARCHAR(12),
   `name_on_card` VARCHAR(20),
   `expiration_date` DATETIME,
-  `ccv` INT
+  `cvc` INT
 );
 
 CREATE TABLE `_order` (

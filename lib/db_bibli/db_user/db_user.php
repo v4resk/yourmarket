@@ -46,7 +46,7 @@ class db_user{
 			$this->photoId = $user_data['photo_id'];
 		}
 		if(isset($user_data['adrr1'])){
-			$this->addr1 = $user_data['adrr1'];
+			$this->addr1 = $user_data['addr1'];
 		}
 		if(isset($user_data['addr2'])){
 			$this->addr2 = $user_data['addr2'];
@@ -118,7 +118,7 @@ class db_user{
 		return $this->phone;
 	}
 	public function hasPasswd($pass){
-		return $isPassGood = ($pass == $this->passwd) true : false;
+		return ($pass == $this->passwd) ? true : false;
 	}
 }
 ?>
