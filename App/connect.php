@@ -21,6 +21,8 @@ if(isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
 	if($user_connect_attempt->hasPasswd($userPasswd)){
 		$_SESSION["db_user"]=$user_connect_attempt;
 	}
+	unset($_POST['inputEmail']);
+	unset($_POST['inputPassword']);
 }
 
 ?>
