@@ -1,27 +1,7 @@
-<?php require '../App/init.php'; ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-
-<?php
-		try{
-				$local = "localhost";
-				$dbname = "yourMarketDB";
-				$user = "www-data";
-				$pass = "toor";
-				$db = new PDO("mysql:host=$local;dbname=$dbname;charset=utf8",$user,$pass);
-			}catch(Exeption $e){
-				die("ERROR".$e->intl_get_error_message());
-			}
-
-		$userTest = new db_user($db,'lucas.heurtin@free.fr');
-		echo $userTest->getName();
-
-	 ?>
-
 <head>
-	<title>Home Page</title>
+	<title>Best Offer</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="template.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -42,7 +22,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
 						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
-						<a class="dropdown-item" href="wine.html" style="color:grey; ">Wine</a><br>
+							<a class="dropdown-item" href="wine.html" style="color:grey; ">Wine</a><br>
 							<a class="dropdown-item" href="beer.html" style="color: grey;  ">Beer</a><br>
 							<a class="dropdown-item" href="liquor.html" style="color:grey; ">Liquor</a><br>
 						</div>
@@ -67,7 +47,7 @@
 
 <!--NAV-->
 	<div class="navigation" >
-		Home
+		<p>Best offer</p>
 	</div>
 
 <!--FOOTER-->
