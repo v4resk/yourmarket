@@ -6,7 +6,7 @@
 </head>
 <body>
 	<?php
-		require '../lib/db_bibli/db_user/db_user.php';
+		require '../App/init.php';
 		try{
 				$local = "localhost";
 				$dbname = "yourMarketDB";
@@ -21,6 +21,12 @@
 
 		$userTest = new db_user($db,'lucas.heurtin@free.fr');
 		echo $userTest->getName();
+
+		if(hasSessionStart()){
+			echo 1;
+		}else {
+			echo 0;
+		}
 
 	 ?>
 </body>
