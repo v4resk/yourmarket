@@ -13,7 +13,7 @@
 	<div class="headr">
 		<a href="homePage.html"><img src="logo.png" height="150" width="200"></a>
 	</div>
-	<form action="" method="post">
+	<form action="index.php" method="post">
 		<div class="form-group">
 			<label for="inputEmail"style="margin-left: 450px;">Email Address</label>
 			<input type="email" class="form-control" name="inputEmail" aria-describedby="emailHelp" placeholder="Enter your email" style="width: 35%; margin-left: 450px;" >

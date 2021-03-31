@@ -5,8 +5,16 @@
 <html lang="en">
 <?php
 		
+	if(isset($_SESSION['db_user'])){
+	echo $_SESSION['db_user']->getEmail();}
 
-	echo $_SESSION['db_user']->getName;
+	$lucasUser = new db_user($db,'lucas.heurtin@free.fr');
+	$lucasUser->setPasswd('Lagar');
+
+	$managerDB = new db_user_manage($db);
+	$managerDB->db_updateUser($lucasUser);
+
+	
 ?>
 
 <head>

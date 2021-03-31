@@ -21,8 +21,17 @@ if(isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
 	if($user_connect_attempt->hasPasswd($userPasswd)){
 		$_SESSION["db_user"]=$user_connect_attempt;
 	}
-	unset($_POST['inputEmail']);
-	unset($_POST['inputPassword']);
 }
 
+if(isset($_POST['subSignUp'])){
+	//Create manager to acces db
+	$temp_manager_to_addUser = new db_user_manage($db);
+	//Add user to DB
+	$temp_manager_to_addUser->db_addUser();
+}
+
+
+
+$_POST[] = array();
+	
 ?>

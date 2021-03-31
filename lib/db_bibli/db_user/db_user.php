@@ -75,6 +75,11 @@ class db_user{
 		}
 	}
 
+	//-----------------GET-----------------------------
+	public function getEmail(){
+		return $this->email;
+	}
+
 	public function getName(){
 		return $this->name;
 	}
@@ -116,6 +121,53 @@ class db_user{
 	}
 	public function getPhone(){
 		return $this->phone;
+	}
+	//----------SET---------------
+	public function setEmail($email){
+		$this->email = (String)$email;
+	}
+
+	public function setName($name){
+		$this->name = (String)$name;
+	}
+	public function setFirstName($fname){
+		$this->firstName = (String)$fname;
+	}
+	public function setDateOfBirth($dateOfBirth){
+		$this->dateOfBirth = (String)$dateOfBirth;
+	}
+	public function setPasswd($pass){
+		$this->passwd = (String)$pass;
+	}
+	public function setWhoAmI($whoAmI){
+		$this->whoAmI = (String)$whoAmI;
+	}
+	public function setIdBillInfo($id){
+		$this->idBillInfo = (int)$id;
+	}
+	public function setFavBackgroundNo($favBack){
+		$this->favBackgroundNo = $favBack;
+	}
+	public function setPhotoId($id){
+		$this->photoId = $id;
+	}
+	public function setAddr1($addr){
+		$this->addr1 = $addr;
+	}
+	public function setAddr2($addr){
+		$this->addr2 = $addr;
+	}
+	public function setCity($city){
+		$this->city = $city;
+	}
+	public function setZip($zip){
+		$this->zip = $zip;
+	}
+	public function setCountry($country){
+		$this->country = $country;
+	}
+	public function setPhone($phone){
+		$this->phone = $phone;
 	}
 	public function hasPasswd($pass){
 		return ($pass == $this->passwd) ? true : false;
