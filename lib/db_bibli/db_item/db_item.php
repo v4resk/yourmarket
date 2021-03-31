@@ -69,6 +69,7 @@ class db_item{
 		}
 	}
 
+	//----------------GET------------------------
 	public function getIdItem(){
 		return $this->id_item;
 	}
@@ -108,6 +109,47 @@ class db_item{
 	}
 	public function getCustomerId(){
 		return $this->customer_id;
+	}
+	//-------------------SET---------------------
+
+	public function setIdItem($id){
+		$this->id_item = $id;
+	}
+	public function setName($name){
+		$this->name = $name;
+	}
+	public function setSellBID($boolB){
+		$this->sellBID = $boolB;
+	}
+	public function setSellBO($boolB){
+		$this->sellBO = $boolB;
+	}
+	public function setSellBIN($boolB){
+		$this->sellBIN = $boolB;
+	}
+	public function setCategory($category){
+		$this->category = $category;
+	}
+	public function setInfo($info){
+		$this->info = $info;
+	}
+	public function setDeliveryPrice($delivery){
+		$this->delivery_price = $delivery;
+	}
+	public function setPrice($price){
+		$this->price = $price;
+	}
+	public function setFromTime($time){
+		$this->fromTime = $time;
+	}
+	public function setToTime($time){
+		$this->toTime = $time;
+	}
+	public function setSellerId($sellId){
+		$this->seller_id = $sellId;
+	}
+	public function setCustomerId($custId){
+		$this->customer_id = $custId;
 	}
 }
 ?>

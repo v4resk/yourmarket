@@ -10,7 +10,7 @@
 
 	$lucasUser = new db_user($db,'lucas.heurtin@free.fr');
 	$lucasUser->setPasswd('Lagar');
-
+	
 	$managerDB = new db_user_manage($db);
 	$managerDB->db_updateUser($lucasUser);
 
