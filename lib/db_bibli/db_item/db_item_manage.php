@@ -55,7 +55,7 @@ class db_item_manage(){
 
 	public function db_addItem(){
 		if(isset($this->db)){
-			if(isset($_POST['item_name']) && (isset($_POST['sellBID']) || isset($_POST['sellBO']) || isset($_POST['sellBIN'])) && isset($_POST['category']) && isset($_POST['info']) && isset($_POST['delivery_price']) && isset($_POST['price']) && isset($_POST['fromTime']) && isset($_POST['toTime']) && isset($_POST['seller_id']) && isset($_POST['customer_id'])){
+			if(isset($_POST['item_name']) && (isset($_POST['sellBID']) || isset($_POST['sellBO']) || isset($_POST['sellBIN'])) && isset($_POST['category']) && isset($_POST['info']) && isset($_POST['delivery_price']) && isset($_POST['price']) && isset($_POST['fromTime']) && isset($_POST['toTime']) && isset($_POST['seller_id']) ){
 				$name = $_POST['item_name'];
 				$sellBID= isset($_POST['sellBID']) ? 1 :0;
 				$sellBO=  isset($_POST['sellBO']) ? 1 :0;
@@ -67,7 +67,7 @@ class db_item_manage(){
 				$fromTime= $_POST['fromTime'];
 				$toTime= $_POST['toTime'];
 				$seller_id= $_POST['seller_id'];
-				$customer_id= $_POST['customer_id'];
+				
 
 				$sqlQuery = "INSERT INTO Item (id_item,name,sellBID,sellBO,sellBIN,category,info,delivery_price,price,fromTime,toTime,seller_id,customer_id) VALUES (NULL,:name,:sellBID,:sellBO,:sellBIN,:category,:info,:delivery_price,:price,:fromTime,:toTime,:seller_id,NULL)";
 
@@ -83,7 +83,8 @@ class db_item_manage(){
 				$statment->bindParam(':fromTime',$fromTime,PDO::PARAM_STR);
 				$statment->bindParam(':toTime',$toTime,PDO::PARAM_STR);
 				$statment->bindParam(':seller_id',$seller_id,PDO::PARAM_STR);
-				$statment->bindParam(':customer_id',$customer_id,PDO::PARAM_STR);
+
+				$statment->execute();
 
 			}
 		}
