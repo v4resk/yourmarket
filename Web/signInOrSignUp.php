@@ -26,7 +26,8 @@
 			<input type="checkbox" name="rememberMe" class="form-check-input"style="margin-left: 450px;">
 			<label class="form-check-label" for="check" >Remember Me</label>
 		</div>
-		<button type="submit" class="btn" style="margin-left: 450px;">Submit</button>
+		<button type="submit" class="btn" style="margin-left: 450px;">Submit</button><br><br>
+		<a href="signUp.php" style="margin-left: 450px;">No account yet, create one by clicking here</a>
 	</form>
 </body>
 </html>
