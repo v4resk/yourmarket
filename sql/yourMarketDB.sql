@@ -9,7 +9,7 @@ CREATE TABLE `User` (
   `email` VARCHAR(40) PRIMARY KEY NOT NULL,
   `mdp` VARCHAR(15) NOT NULL,
   `whoAmI` VARCHAR(5) NOT NULL,
-  `id_billInfo` INT NOT NULL,
+  `id_billInfo` INT,
   `fav_background_number` INT NOT NULL DEFAULT 0,
   `photo_id` VARCHAR(20) NOT NULL DEFAULT '000',
   `addr1` VARCHAR(30) NOT NULL,
