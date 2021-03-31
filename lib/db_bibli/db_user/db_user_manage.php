@@ -8,7 +8,7 @@ class db_user_manage{
 	}
 
 	// ADD USER / REMOVE USER from $db_user 
-	function db_deletUser($user){
+	public function db_deletUser($user){
 		if(isset($this->db)){
 			$user_email_string = (String)$user->getEmail(); 
 			$sqlQuery="DELETE From User WHERE email = :user_email";
@@ -17,7 +17,7 @@ class db_user_manage{
 			$statment->execute();
 		}
 	}
-	function db_updateUser($user){
+	public function db_updateUser($user){
 		if(isset($this->db)){
 			$user_email = (String)$user->getEmail();
 			$user_name = (String)$user->getName();
@@ -57,11 +57,10 @@ class db_user_manage{
 
 		}
 	}
-}
 
-public function db_addUser()
-	if($this->db){
 
+public function db_addUser(){
+	if(isset($this->db)){
 		if(isset($_POST['user_email']) && isset($_POST['user_name']) && isset($_POST['user_fName']) && isset($_POST['user_date_of_b']) && isset($_POST['user_Passwd'])&& isset($_POST['user_addr1'])&& isset($_POST['user_addr2']) && isset($_POST['user_city']) && isset($_POST['user_country']) && isset($_POST['user_phone'])){
 			$user_email=(String)$_POST['user_email'];
 			$user_name=(String)_POST['user_email']; 
@@ -75,7 +74,7 @@ public function db_addUser()
 			$user_phone = (String)$_POST['user_phone'];
 			$user_WhoAmI = "customer";
 
-			$sqlQuery = "INSERT INTO User(name,firstName,date_naissance,email,mdp,whoAmI,id_billInfo,addr1,addr2,city,postal_code,country,phone) VALUES (:name,:firstName,:date_naissance,:email,:mdp,:whoAmI,NULL,:addr1,:addr2,:city,:postal_code,:country,:phone)"
+			$sqlQuery = "INSERT INTO User(name,firstName,date_naissance,email,mdp,whoAmI,id_billInfo,addr1,addr2,city,postal_code,country,phone) VALUES (:name,:firstName,:date_naissance,:email,:mdp,:whoAmI,NULL,:addr1,:addr2,:city,:postal_code,:country,:phone)";
 
 			$statment = $this->db->prepare($sqlQuery);
 			$statment->bindParam(':name',$user_name,PDO::PARAM_STR);
@@ -97,5 +96,9 @@ public function db_addUser()
 			return false;
 		}
 	}
+}
+}	
+
+
 
 ?>
