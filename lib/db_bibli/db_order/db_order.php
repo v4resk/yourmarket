@@ -43,6 +43,7 @@ class db_order{
 		}
 	}
 
+	//--------GET----------------
 	public function getIdOrder(){
 		return $this->id_order;
 	}
@@ -65,6 +66,28 @@ class db_order{
 		return $this->max_price;
 	}
 
+	//-----------SET----------------
+	public function setIdOrder($val){
+		$this->id_order = $val;
+	}
+	public function setIdItem($val){
+		$this->id_item= $val;
+	}
+	public function setEmail($val){
+		$this->email= $val;
+	}
+	public function setDate_m($val){
+		$this->date_m= $val;
+	}
+	public function setStatus($val){
+		$this->status= $val;
+	}
+	public function setPrice($val){
+		$this->price= $val;
+	}
+	public function setMaxPrice($val){
+		$this->max_price= $val;
+	}
 }
 
 
