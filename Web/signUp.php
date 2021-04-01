@@ -54,7 +54,7 @@
 		</div>
 		<div class="form-group">
 			<label for="inputPhone" style="margin-left: 450px;">Phone Number</label>
-			<input type="text" class="form-control is-valide" name="inputPhone" required aria-describedby="phoneHelp" style="width: 35%; margin-left: 450px;" >			
+			<input type="text" class="form-control is-valide" name="inputPhone" required 	aria-describedby="phoneHelp" style="width: 35%; margin-left: 450px;" >			
 		</div>
 		<button type="submit" class="btn" style="margin-left: 450px;" name="subSignUp">Submit</button><br><br>
 	</form>

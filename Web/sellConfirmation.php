@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Cart</title>
+	<title>Sell Confirmation</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="template.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -47,7 +47,7 @@
 
 <!--NAV-->
 	<div class="navigation" >
-		<p>Cart</p>
+		<img src="<?php echo $_POST["inputImg"]?>" width="250" heigth="250" style="margin-left: 43%; ">
 	</div>
 
 <!--FOOTER-->
@@ -83,3 +83,13 @@
 	</footer>
 </body>
 </html>
+
+
+
+				
+					
+					
+					
+					
+					
+			
