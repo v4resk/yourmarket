@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="headr">
-		<a href="homePage.html"><img src="logo.png" height="150" width="200"></a>
+		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 
 	<form action="index.php" method="post">
