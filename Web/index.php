@@ -52,11 +52,13 @@
 							<a class="dropdown-item" href="auctions.html" style="color:grey; ">Auctions</a><br>
 						</div>
 					</li>
-					<li><a href="sell.html">Sell</a></li>
+					<li><a href="sell.php">Sell</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="cart.html"><img src="cart.png" width="30" height="30" ></a></li>
+
 					<li><a href="signInOrSignUp.php"><img src="profile_icon.png" width="30" height="30"></a></li>
+
 				</ul>
 			</div>
         </nav>

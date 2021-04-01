@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Auctions</title>
+	<title>Sell Confirmation</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="template.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 <body>
 <!-- HEADER -->
 	<div class="headr">
-		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
+		<a href="homePage.html"><img src="logo.png" height="150" width="200"></a>
 	</div>
 	<div class="row" id="">
 		<nav class="navbar navbar-default" role="navigation">
@@ -47,7 +47,7 @@
 
 <!--NAV-->
 	<div class="navigation" >
-		<p>Auctions</p>
+		<img src="<?php echo $_POST["inputImg"]?>" width="250" heigth="250" style="margin-left: 43%; ">
 	</div>
 
 <!--FOOTER-->
@@ -72,13 +72,24 @@
 			<div class="col-mb-7">@ Copyright YourMarket 2021</div>
 
 			<ul class="footer-nav">
-				<li> <a href = "index.php">Home</a></li>
+				<li> <a href = "homePage.html">Home</a></li>
 				<li> <a href="mailto:support@yourmarket.com">Contact</li>
 				<p> support@yourmarket.com</p>
 				<p>+44 7800 987654</p>
-			</ul>			
+			</ul>
+			
 	</div>
 	</div>
 	</footer>
 </body>
 </html>
+
+
+
+				
+					
+					
+					
+					
+					
+			
