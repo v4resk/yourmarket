@@ -30,6 +30,14 @@ if(isset($_POST['subSignUp'])){
 	$temp_manager_to_addUser->db_addUser();
 }
 
+if(isset($_POST['subPubItem'])){
+	//Create a manger to acces DB
+	$temp_manager_to_addItem = new db_item_manage($db);
+	//add item to db
+	$temp_manager_to_addItem->db_addItem();
+
+}
+
 
 
 $_POST[] = array();

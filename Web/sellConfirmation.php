@@ -1,3 +1,9 @@
+<?php require '../App/init.php'; 
+
+
+if(isset($_SESSION['db_user'])){
+	echo $_SESSION['db_user']->getEmail();}?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,9 +61,9 @@
 
 		<img src="<?php echo $_POST["inputImg"]?>" width="250" heigth="250" style="text-align: center;">
 		<?php
-			foreach ($_POST as $element) {
+			foreach ($_POST as $key => $element) {
 
-				?><p>echo $element . "<br>";<?php
+			echo "<p>".$key." : ".$element. "<br>";
 			}
 		?>
 		</p>
