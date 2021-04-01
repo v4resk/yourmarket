@@ -47,10 +47,23 @@
 
 <!--NAV-->
 	<div class="navigation" >
-		<img src="<?php echo $_POST["inputImg"]?>" width="250" heigth="250" style="margin-left: 43%; ">
+		<h1 style="margin-left: 550px; color: #402019; ">Upload Confirmation</h1> 
+
+		<br>
+		<br>
+		<br>
+
+		<img src="<?php echo $_POST["inputImg"]?>" width="250" heigth="250" style="text-align: center;">
+		<?php
+			foreach ($_POST as $element) {
+
+				?><p>echo $element . "<br>";<?php
+			}
+		?>
+		</p>
 	</div>
 
-<!--FOOTER-->
+<!--FOOTER
 <footer class="site-footer">
 		<div class="container">
 		<div class="row">
@@ -80,7 +93,7 @@
 			
 	</div>
 	</div>
-	</footer>
+	</footer>-->
 </body>
 </html>
 

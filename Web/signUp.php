@@ -57,13 +57,8 @@
 			<input type="text" class="form-control is-valid" name="user_country" required aria-describedby="countryHelp" style="width: 35%; margin-left: 450px;" >			
 		</div>
 		<div class="form-group">
-<<<<<<< HEAD
-			<label for="inputPhone" style="margin-left: 450px;">Phone Number</label>
-			<input type="text" class="form-control is-valide" name="inputPhone" required 	aria-describedby="phoneHelp" style="width: 35%; margin-left: 450px;" >			
-=======
 			<label for="user_phone" style="margin-left: 450px;">Phone Number</label>
 			<input type="text" class="form-control is-valide" name="user_phone" required aria-describedby="phoneHelp" style="width: 35%; margin-left: 450px;" >			
->>>>>>> e86bb7a6c8fec0679db7c882a09643dcec24230b
 		</div>
 		<button type="submit" class="btn" style="margin-left: 450px;" name="subSignUp">Submit</button><br><br>
 	</form>

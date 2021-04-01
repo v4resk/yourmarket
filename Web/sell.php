@@ -51,10 +51,6 @@
 
 		<form action="sellConfirmation.php" method="post">
 			<div class="form-group">
-				<label for="inputIdItem"style="margin-left: 450px;">Item's ID</label>
-				<input type="text" class="form-control is-valid"  name="inputIdItem" aria-describedby="idHelp" placeholder="Enter item's ID " required style="width: 35%; margin-left: 450px;" >
-			</div>
-			<div class="form-group">
 				<label for="inputNameItem" style="margin-left: 450px;">Name</label>
 				<input type="text" class="form-control is-valid" name="inputNameItem" aria-describedby="nameHelp" placeholder="Enter item's Name" required style="width: 35%; margin-left: 450px; ">
 			</div>
@@ -62,24 +58,25 @@
 			<p style="margin-left:525px;">Choose a way to sell your item (You can choose several)</p>
 		
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" name="checkBoxBID" id="inlineCheckBoxBID" value="option1" style="margin-left: 570px;">
+				<input class="form-check-input" type="checkbox" name="sellBID" id="inlineCheckBoxBID" value="Auctions" style="margin-left: 570px;">
 				<label class="form-check-label" for="inlineCheckBoxBID" >Auctions</label>
 			</div>
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" name="checkBoxBO" id="inlineCheckBoxBO" value="option2" style="margin-left: 570px;">
+				<input class="form-check-input" type="checkbox" name="sellBO" id="inlineCheckBoxBO" value="Best Offer" style="margin-left: 570px;">
 				<label class="form-check-label" for="inlineCheckBoxBO" >Best Offer</label>
 			</div>
 			<div class="form-check form-check-inline">
-				<input class="form-check-input" type="checkbox" name="checkBoxBIN" id="inlineCheckBoxBIN" value="option3" style="margin-left: 570px;">
+				<input class="form-check-input" type="checkbox" name="sellBIN" id="inlineCheckBoxBIN" value="Buy It Now" style="margin-left: 570px;">
 				<label class="form-check-label" for="inlineCheckBoxBIN" >Buy It Now</label>
 			</div>
 			<div class="form-group">
 				<label for="inputCategory" style="margin-left: 450px;">Category</label>
-				<select class="custom-select" size="4" style="margin-left: 450px; width: 35%;"> 
-					<option value="1">Wine</option>
-					<option value="2">Beer</option>
-					<option value="3">Liquor</option>
-				</select>
+				<input list="category" name="category" style="margin-left: 450px; width: 35%;">
+				<datalist id="category">
+					<option value="Wine">
+					<option value="Beer">
+					<option value="Liquor">
+				</datalist>
 			<!--<input type="text" class="form-control is-valid" name="inputCategory" aria-describedby="categoryHelp" placeholder="Enter item's Category" required style="width: 35%; margin-left: 450px; ">-->
 			</div>
 			<div class="form-group">
