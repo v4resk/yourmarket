@@ -8,7 +8,7 @@ class db_user_manage{
 	}
 
 	// ADD USER / REMOVE USER from $db_user 
-	public function db_deletUser($user){
+	public function db_deleteUser($user){
 		if(isset($this->db)){
 			$user_email_string = (String)$user->getEmail(); 
 			$sqlQuery="DELETE From User WHERE email = :user_email";
@@ -52,29 +52,31 @@ class db_user_manage{
 			$statment->bindParam(':country',$user_country,PDO::PARAM_STR);
 			$statment->bindParam(':phone',$user_phone,PDO::PARAM_STR);
 			$statment->bindParam(':email',$user_email,PDO::PARAM_STR);
+			
 			$statment->execute();
-
-
 		}
 	}
 
 
 public function db_addUser(){
 	if(isset($this->db)){
-		if(isset($_POST['user_email']) && isset($_POST['user_name']) && isset($_POST['user_fName']) && isset($_POST['user_date_of_b']) && isset($_POST['user_Passwd'])&& isset($_POST['user_addr1'])&& isset($_POST['user_addr2']) && isset($_POST['user_city']) && isset($_POST['user_country']) && isset($_POST['user_phone'])){
+		if(isset($_POST['user_email']) && isset($_POST['user_name']) && isset($_POST['user_fName']) && isset($_POST['user_date_of_b']) && isset($_POST['user_Passwd'])&& isset($_POST['user_addr1']) && isset($_POST['user_city']) && isset($_POST['user_country']) && isset($_POST['user_phone'])){
+
+
 			$user_email=(String)$_POST['user_email'];
-			$user_name=(String)_POST['user_email']; 
+			$user_name=(String)$_POST['user_name']; 
 			$user_fName=(String)$_POST['user_fName'];
 			$user_date_of_b = (String)$_POST['user_date_of_b'];
 		 	$user_Passwd= (String)$_POST['user_Passwd'];
 			$user_addr1= (String)$_POST['user_addr1'];
 			$user_addr2= (String)$_POST['user_addr2'];
+			$user_zip = (String)$_POST['user_zip'];
 			$user_city= (String)$_POST['user_city'];
 			$user_country= (String)$_POST['user_country'];
 			$user_phone = (String)$_POST['user_phone'];
-			$user_WhoAmI = "customer";
+			$user_WhoAmI = "custo";
 
-			$sqlQuery = "INSERT INTO User(name,firstName,date_naissance,email,mdp,whoAmI,id_billInfo,addr1,addr2,city,postal_code,country,phone) VALUES (:name,:firstName,:date_naissance,:email,:mdp,:whoAmI,NULL,:addr1,:addr2,:city,:postal_code,:country,:phone)";
+			$sqlQuery = "INSERT INTO User (name,firstName,date_naissance,email,mdp,whoAmI,id_billInfo,addr1,addr2,city,postal_code,country,phone) VALUES (:name,:firstName,:date_naissance,:email,:mdp,:whoAmI,NULL,:addr1,:addr2,:city,:postal_code,:country,:phone)";
 
 			$statment = $this->db->prepare($sqlQuery);
 			$statment->bindParam(':name',$user_name,PDO::PARAM_STR);
@@ -90,7 +92,11 @@ public function db_addUser(){
 			$statment->bindParam(':country',$user_country,PDO::PARAM_STR);
 			$statment->bindParam(':phone',$user_phone,PDO::PARAM_STR);
 
-			$statment->execute();
+			
+			if (!$statment->execute()) {
+			    print_r($statment->errorInfo());
+			}
+			
 			return true;
 		}else {
 			return false;
