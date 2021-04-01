@@ -58,18 +58,41 @@ if(isset($_SESSION['db_user'])){
 		<br>
 		<br>
 		<br>
-
-		<img src="<?php echo $_POST["inputImg"]?>" width="250" heigth="250" style="text-align: center;">
+		<form action="index.php" method="post">
+		<img src="<?php echo $_POST["pic"]?>" width="250" heigth="250" style="margin-left: 42%">
+		<p style="text-align: center">Name : <?php echo $_POST["item_name"]?></p>
+		<p style="text-align: center">Category : <?php echo $_POST["category"]?></p>
+		<p style="text-align: center">Description : <?php echo $_POST["info"]?></p>
+		<p style="text-align: center">Price : £<?php echo $_POST["price"]?></p>
+		<p style="text-align: center">Date of Publication : <?php echo $_POST["fromTime"]?></p>
+		<p style="text-align: center">Limit Date : <?php echo $_POST["toTime"]?></p>
 		<?php
-			foreach ($_POST as $key => $element) {
 
-			echo "<p>".$key." : ".$element. "<br>";
-			}
-		?>
-		</p>
+			if(isset($_POST["sellBIN"]))
+				{
+					?><p style="text-align: center;"><?php echo "You chose the sale option Buy It Now";?></p><?php
+				}
+			if(isset($_POST["sellBO"]))
+				{
+					?><p style="text-align: center;"><?php echo "You chose the sale option Best Offer";?></p><?php
+				}
+			if(isset($_POST["sellBID"]))
+				{
+					?><p style="text-align: center;"><?php echo "You chose the sale option Auctions";?></p><?php
+				}
+		?>	
+		<br>
+		<div class="col text-center">
+		<button type="submit"  class="btn btn-success">Upload Item</button>	<br><br>
+		<button type="submit"  class="btn btn-danger">Return</button><br><br>
+		<small >Please read the information carefully before uploading your item</small>
+		</div>
+		</form>
+
+
 	</div>
 
-<!--FOOTER
+<!--FOOTER-->
 <footer class="site-footer">
 		<div class="container">
 		<div class="row">
@@ -97,9 +120,9 @@ if(isset($_SESSION['db_user'])){
 				<p>+44 7800 987654</p>
 			</ul>
 			
-	</div>
-	</div>
-	</footer>-->
+		</div>
+		</div>
+	</footer>
 </body>
 </html>
 
