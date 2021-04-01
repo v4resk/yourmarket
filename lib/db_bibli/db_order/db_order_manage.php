@@ -46,13 +46,25 @@ class db_order_manage{
 		if(isset($this->db)){
 			if(isset($_POST['user_date_m']) && isset($_POST['user_id_item']) && isset($_POST['user_status']) && (isset($_POST['user_price']) || isset($_POST['user_max_price']))&& isset($_POST['user_email'])){
 
-				$id_order = $_P
-				$email= $_POST[''];
+				
+				$email= $_POST['']; // A REMPLIR ! 
 				$date_m= $_POST[''];
 				$id_item= $_POST[''];
 				$status= $_POST[''];
 				$price= $_POST[''];
 				$max_price= $_POST[''];
+
+				$sqlQuery = "INSERT INTO _order(id_order,email,date_m,id_item,status,price,max_price) VALUES (:id_order,:email,:date_m,:id_item,:status,:price,:max_price)";
+				$statment = $this->bd->prepare($sqlQuery);
+				$statment->bindParam(':id_order',null,PDO::PARAM_INT);
+				$statment->bindParam(':email',$email,PDO::PARAM_STR);
+				$statment->bindParam(':date_m',$date_m,PDO::PARAM_STR);
+				$statment->bindParam(':id_item',$id_item,PDO::PARAM_INT);
+				$statment->bindParam(':status',$status,PDO::PARAM_INT);
+				$statment->bindParam(':price',$price,PDO::PARAM_STR);
+				$statment->bindParam(':max_price',$max_price,PDO::STR);
+
+				$statment->execute();
 
 			}
 			
