@@ -51,8 +51,8 @@
 
 		<form action="sellConfirmation.php" method="post">
 			<div class="form-group">
-				<label for="inputNameItem" style="margin-left: 450px;">Name</label>
-				<input type="text" class="form-control is-valid" name="inputNameItem" aria-describedby="nameHelp" placeholder="Enter item's Name" required style="width: 35%; margin-left: 450px; ">
+				<label for="item_name" style="margin-left: 450px;">Name</label>
+				<input type="text" class="form-control is-valid" name="item_name" aria-describedby="nameHelp" placeholder="Enter item's Name" required style="width: 35%; margin-left: 450px; ">
 			</div>
 			<br>
 			<p style="margin-left:525px;">Choose a way to sell your item (You can choose several)</p>
@@ -70,9 +70,9 @@
 				<label class="form-check-label" for="inlineCheckBoxBIN" >Buy It Now</label>
 			</div>
 			<div class="form-group">
-				<label for="inputCategory" style="margin-left: 450px;">Category</label>
-				<input list="category" name="category" style="margin-left: 450px; width: 35%;">
-				<datalist id="category">
+				<label for="category" style="margin-left: 450px;">Category</label>
+				<input list="dataCategory" name="category" style="margin-left: 450px; width: 35%;">
+				<datalist id="dataCategory">
 					<option value="Wine">
 					<option value="Beer">
 					<option value="Liquor">
@@ -80,31 +80,31 @@
 			<!--<input type="text" class="form-control is-valid" name="inputCategory" aria-describedby="categoryHelp" placeholder="Enter item's Category" required style="width: 35%; margin-left: 450px; ">-->
 			</div>
 			<div class="form-group">
-				<label for="inputDescription" style="margin-left: 450px;">Description</label>
-				<textarea rows="3" cols="10"class="form-control is-valid" name="inputDescription" aria-describedby="descriptionHelp" placeholder="Enter item's Description" required style="width: 35%; margin-left: 450px; "></textarea>
+				<label for="info" style="margin-left: 450px;">Description</label>
+				<textarea rows="3" cols="10"class="form-control is-valid" name="info" aria-describedby="descriptionHelp" placeholder="Enter item's Description" required style="width: 35%; margin-left: 450px; "></textarea>
 			</div>
 			<div class="form-group">
-				<label for="inputPrice" style="margin-left: 450px;">Price (£)    (Starting Price for auctions)</label>
-				<input type="number" min="0.01" step="0.01" name="inputPrice" class="form-control is-valid" aria-describedby="priceHelp" placeholder="Enter item's Price" required style="width: 35%; margin-left: 450px;">
+				<label for="price" style="margin-left: 450px;">Price (£)    (Starting Price for auctions)</label>
+				<input type="number" min="0.01" step="0.01" name="price" class="form-control is-valid" aria-describedby="priceHelp" placeholder="Enter item's Price" required style="width: 35%; margin-left: 450px;">
 			</div>	
 			<div class="form-group">
-				<label for="inputStartTime" style="margin-left: 450px;">Date of publication</label>
-				<input type="date"  name="inputStartTime" class="form-control is-valid" aria-describedby="pubDateHelp" required style="width: 35%; margin-left: 450px;" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>">
+				<label for="fromTime" style="margin-left: 450px;">Date of publication</label>
+				<input type="date"  name="fromTime" class="form-control is-valid" aria-describedby="pubDateHelp" required style="width: 35%; margin-left: 450px;" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>">
 			</div>
 			<div class="form-group">
-				<label for="inputEndTime" style="margin-left: 450px;">Limit Date</label>
-				<input type="date"  name="inputEndTime" class="form-control is-valid" aria-describedby="endDateHelp" required style="width: 35%; margin-left: 450px;" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>">
+				<label for="toTime" style="margin-left: 450px;">Limit Date</label>
+				<input type="date"  name="toTime" class="form-control is-valid" aria-describedby="endDateHelp" required style="width: 35%; margin-left: 450px;" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>">
 			</div>
 			<div class="form-group">
-				<label for="inputImg" style="margin-left: 450px;">Add images to improve your publication (Only .png or .jpg)</label>
-				<input type="file" name="inputImg" id="imgItem" style="width: 35%; margin-left: 450px;" class="form-control"  aria-describedby="imgHelp">
+				<label for="pic" style="margin-left: 450px;">Add images to improve your publication (Only .png or .jpg)</label>
+				<input type="file" name="pic" id="imgItem" style="width: 35%; margin-left: 450px;" class="form-control"  aria-describedby="imgHelp">
 			</div>
 			<button type="submit" class="btn" style="margin-left: 450px;" name="subPubItem">Upload your item</button><br><br>
 		</form>	
 		
 	</div>
 
-<!--FOOTER
+<!--FOOTER-->
 <footer class="site-footer">
 		<div class="container">
 		<div class="row">
@@ -134,6 +134,6 @@
 			
 	</div>
 	</div>
-	</footer>-->
+	</footer>
 </body>
 </html>
