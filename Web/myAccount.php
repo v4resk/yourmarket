@@ -30,7 +30,8 @@ require '../App/init.php';?>
 	echo "City : " . $_SESSION['db_user']->getCity() . "<br>";	
 	echo "Zip : " . $_SESSION['db_user']->getZip() . "<br>";	
 	echo "Country : " . $_SESSION['db_user']->getCountry() . "<br>";	
-	echo "Phone number : " . $_SESSION['db_user']->getPhone() . "<br>";		
+	echo "Phone number : " . $_SESSION['db_user']->getPhone() . "<br>";
+	echo "Date Of Birth : " . $_SESSION['db_user']->getDateOfBirth() . "<br>";	
 	?>
 	
 	<a href="updateUserInfo.php">If you want to update your information, please click here !</a></p>
