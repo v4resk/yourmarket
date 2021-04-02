@@ -36,6 +36,9 @@ if(isset($_POST['subPubItemConf'])){
 	//add item to db
 	$temp_manager_to_addItem->db_addItem();
 }
+if(isset($_POST['killSession'])){
+	session_unset();
+}
 
 $_POST[] = array();
 	

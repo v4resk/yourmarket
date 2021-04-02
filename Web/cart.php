@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Profile</title>
+	<title>Cart</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="template.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -22,23 +23,23 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
 						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
-							<a class="dropdown-item" href="wine.html" style="color:grey; ">Wine</a><br>
-							<a class="dropdown-item" href="beer.html" style="color: grey;  ">Beer</a><br>
-							<a class="dropdown-item" href="liquor.html" style="color:grey; ">Liquor</a><br>
+							<a class="dropdown-item" href="wine.php" style="color:grey; ">Wine</a><br>
+							<a class="dropdown-item" href="beer.php" style="color: grey;  ">Beer</a><br>
+							<a class="dropdown-item" href="liquor.php" style="color:grey; ">Liquor</a><br>
 						</div>
 					</li>
 					<li>
 						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buying</a>
 						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
-							<a class="dropdown-item" href="buyItNow.html" style="color:grey; ">Buy it now</a><br>
-							<a class="dropdown-item" href="bestOffer.html" style="color: grey; ">Best offer</a><br>
-							<a class="dropdown-item" href="auctions.html" style="color:grey; ">Auctions</a><br>
+							<a class="dropdown-item" href="buyItNow.php" style="color:grey; ">Buy it now</a><br>
+							<a class="dropdown-item" href="bestOffer.php" style="color: grey; ">Best offer</a><br>
+							<a class="dropdown-item" href="auctions.php" style="color:grey; ">Auctions</a><br>
 						</div>
 					</li>
 					<li><a href="sell.php">Sell</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="cart.html"><img src="cart.png" width="30" height="30" ></a></li>
+					<li><a href="cart.php"><img src="cart.png" width="30" height="30" ></a></li>
 					<li><a href="signInOrSignUp.php"><img src="profile_icon.png" width="30" height="30"></a></li>
 				</ul>
 			</div>
@@ -47,7 +48,7 @@
 
 <!--NAV-->
 	<div class="navigation" >
-		<p>Profile</p>
+		<p>Cart</p>
 	</div>
 
 <!--FOOTER-->

@@ -1,3 +1,5 @@
+<?php
+require '../App/init.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,26 +16,29 @@
 		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 
+
 	<div class="col tex-center">
-		
-
+	
 	<?php 
-
-	echo "E-Mail : " . $_SESSION[db_user]->getEmail() . "<br>";
-	echo "Name : " . $_SESSION[db_user]->getName() . "<br>";	
-	echo "First Name : " . $_SESSION[db_user]->getFirstName() . "<br>";	
-	echo "Password : " . $_SESSION[db_user]->getPasswd() . "<br>";	
-	echo "Favorite Background : " . $_SESSION[db_user]->getFavBackgroundNo() . "<br>";	
-	echo "Adress 1 : " . $_SESSION[db_user]->getAddr1() . "<br>";	
-	echo "Adress 2 : " . $_SESSION[db_user]->getAddr2() . "<br>";	
-	echo "City : " . $_SESSION[db_user]->getCity() . "<br>";	
-	echo "Zip : " . $_SESSION[db_user]->getZip() . "<br>";	
-	echo "Country : " . $_SESSION[db_user]->getCountry() . "<br>";	
-	echo "Phone number : " . $_SESSION[db_user]->getPhone() . "<br>";		
-
+	echo "E-Mail : " .$_SESSION['db_user']->getEmail() . "<br>";
+	echo "Name : " . $_SESSION['db_user']->getName() . "<br>";	
+	echo "First Name : " . $_SESSION['db_user']->getFirstName() . "<br>";	
+	echo "Password : " . $_SESSION['db_user']->getPasswd() . "<br>";	
+	echo "Favorite Background : " . $_SESSION['db_user']->getFavBackgroundNo() . "<br>";	
+	echo "Adress 1 : " . $_SESSION['db_user']->getAddr1() . "<br>";	
+	echo "Adress 2 : " . $_SESSION['db_user']->getAddr2() . "<br>";	
+	echo "City : " . $_SESSION['db_user']->getCity() . "<br>";	
+	echo "Zip : " . $_SESSION['db_user']->getZip() . "<br>";	
+	echo "Country : " . $_SESSION['db_user']->getCountry() . "<br>";	
+	echo "Phone number : " . $_SESSION['db_user']->getPhone() . "<br>";		
 	?>
-	<a href="updateUserInfo.php">If you want to update your information, please click here !</a>
+	
+	<a href="updateUserInfo.php">If you want to update your information, please click here !</a></p>
 	</div>
+	<form action="index.php" method="POST">
+		<input type="submit" name="killSession" value="Log out">
+	</form>
+	
 
 </body>
 </html> 
