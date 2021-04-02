@@ -57,7 +57,6 @@ class db_item_manage{
 		if(isset($this->db)){
 		
 			if(isset($_POST['item_name']) && (isset($_POST['sellBID']) || isset($_POST['sellBO']) || isset($_POST['sellBIN'])) && isset($_POST['category']) && isset($_POST['info']) && isset($_POST['price']) && isset($_POST['fromTime']) && isset($_POST['toTime'])){
-				
 				$name = $_POST['item_name'];
 				$sellBID= isset($_POST['sellBID']) ? 1 :0;
 				$sellBO=  isset($_POST['sellBO']) ? 1 :0;

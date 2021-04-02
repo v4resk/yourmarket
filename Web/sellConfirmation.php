@@ -1,9 +1,3 @@
-<?php require '../App/init.php'; 
-
-
-if(isset($_SESSION['db_user'])){
-	echo $_SESSION['db_user']->getEmail();}?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +13,7 @@ if(isset($_SESSION['db_user'])){
 <body>
 <!-- HEADER -->
 	<div class="headr">
-		<a href="homePage.html"><img src="logo.png" height="150" width="200"></a>
+		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 	<div class="row" id="">
 		<nav class="navbar navbar-default" role="navigation">
@@ -70,21 +64,31 @@ if(isset($_SESSION['db_user'])){
 
 			if(isset($_POST["sellBIN"]))
 				{
-					?><p style="text-align: center;"><?php echo "You chose the sale option Buy It Now";?></p><?php
+					?><p style="text-align: center;"><?php echo "You chose the sale option Buy It Now";?></p>
+					<input type="hidden" name="sellBIN"><?php
 				}
 			if(isset($_POST["sellBO"]))
 				{
-					?><p style="text-align: center;"><?php echo "You chose the sale option Best Offer";?></p><?php
+					?><p style="text-align: center;"><?php echo "You chose the sale option Best Offer";?></p>
+					<input type="hidden" name="sellBO"><?php
 				}
 			if(isset($_POST["sellBID"]))
 				{
-					?><p style="text-align: center;"><?php echo "You chose the sale option Auctions";?></p><?php
+					?><p style="text-align: center;"><?php echo "You chose the sale option Auctions";?></p>
+					<input type="hidden" name="sellBID"><?php
 				}
 		?>	
 		<br>
 		<div class="col text-center">
-		<button type="submit"  class="btn btn-success">Upload Item</button>	<br><br>
-		<button type="submit"  class="btn btn-danger">Return</button><br><br>
+			<input type="hidden" name="item_name" value="<?php echo $_POST['item_name'] ?>">
+			<input type="hidden" name="category" value="<?php echo $_POST['category'] ?>">
+			<input type="hidden" name="info" value="<?php echo $_POST['info'] ?>">
+			<input type="hidden" name="price" value="<?php echo $_POST['price'] ?>">
+			<input type="hidden" name="fromTime" value="<?php echo $_POST['fromTime'] ?>">
+			<input type="hidden" name="toTime" value="<?php echo $_POST['toTime'] ?>">
+
+		<button type="submit"  class="btn btn-success" name="subPubItemConf">Upload Item</button>	<br><br>
+		<button type="submit"  class="btn btn-danger" name="subPubItemCancel">Return</button><br><br>
 		<small >Please read the information carefully before uploading your item</small>
 		</div>
 		</form>
