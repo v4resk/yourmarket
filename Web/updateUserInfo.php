@@ -16,8 +16,15 @@
 
 	<form action="myAccount.php" method="post">
 
-	
+		<div class="form-group">
+			<label for="email" style="margin-left: 450px;">Email</label>
+			<input type="text" class="form-control is-valid" name="email" aria-describedby="nameHelp" placeholder="<?php echo $_SESSION['db_user']->getEmail()?>" value="<?php echo $_SESSION['db_user']->getEmail()?>"required style="width: 35%; margin-left: 450px; ">
+		</div>
+
+
 	<?php 
+
+
 
 	echo "E-Mail : " . $_SESSION[db_user]->getEmail() . "<br>";
 	echo "Name : " . $_SESSION[db_user]->getName() . "<br>";	
@@ -26,7 +33,7 @@
 	echo "Favorite Background : " . $_SESSION[db_user]->getFavBackgroundNo() . "<br>";	
 	echo "Adress 1 : " . $_SESSION[db_user]->getAddr1() . "<br>";	
 	echo "Adress 2 : " . $_SESSION[db_user]->getAddr2() . "<br>";	
-	echo "City : " . $_SESSION[db_user]->getCity() . "<br>";	
+	echo "City : " . $_SESSION[db_user]->getCity() . "<br>";	 
 	echo "Zip : " . $_SESSION[db_user]->getZip() . "<br>";	 
 	echo "Country : " . $_SESSION[db_user]->getCountry() . "<br>";	
 	echo "Phone number : " . $_SESSION[db_user]->getPhone() . "<br>";		
@@ -34,6 +41,7 @@
 	?>
 
 	<a href="updateUserInfo.php">If you want to update your information, please click here !</a>
+
 	</form>
 </body>
 </html> 
