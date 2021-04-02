@@ -1,6 +1,6 @@
 <?php
 
-class db_item_manage(){
+class db_item_manage{
 
 	private $db;
 	public function __construct($db){
@@ -55,18 +55,19 @@ class db_item_manage(){
 
 	public function db_addItem(){
 		if(isset($this->db)){
-			if(isset($_POST['item_name']) && (isset($_POST['sellBID']) || isset($_POST['sellBO']) || isset($_POST['sellBIN'])) && isset($_POST['category']) && isset($_POST['info']) && isset($_POST['delivery_price']) && isset($_POST['price']) && isset($_POST['fromTime']) && isset($_POST['toTime']) && isset($_POST['seller_id']) ){
+		
+			if(isset($_POST['item_name']) && (isset($_POST['sellBID']) || isset($_POST['sellBO']) || isset($_POST['sellBIN'])) && isset($_POST['category']) && isset($_POST['info']) && isset($_POST['price']) && isset($_POST['fromTime']) && isset($_POST['toTime'])){
 				$name = $_POST['item_name'];
 				$sellBID= isset($_POST['sellBID']) ? 1 :0;
 				$sellBO=  isset($_POST['sellBO']) ? 1 :0;
 				$sellBIN= isset($_POST['sellBIN']) ? 1 :0;
 				$category= $_POST['category'];
 				$info= $_POST['info'];
-				$delivery_price= $_POST['delivery_price'];
+				$delivery_price= 2.7;
 				$price= $_POST['price'];
 				$fromTime= $_POST['fromTime'];
 				$toTime= $_POST['toTime'];
-				$seller_id= $_POST['seller_id'];
+				$seller_id= $_SESSION['db_user']->getEmail();
 				
 
 				$sqlQuery = "INSERT INTO Item (id_item,name,sellBID,sellBO,sellBIN,category,info,delivery_price,price,fromTime,toTime,seller_id,customer_id) VALUES (NULL,:name,:sellBID,:sellBO,:sellBIN,:category,:info,:delivery_price,:price,:fromTime,:toTime,:seller_id,NULL)";
@@ -84,8 +85,10 @@ class db_item_manage(){
 				$statment->bindParam(':toTime',$toTime,PDO::PARAM_STR);
 				$statment->bindParam(':seller_id',$seller_id,PDO::PARAM_STR);
 
-				$statment->execute();
-
+				if (!$statment->execute()) {
+			    print_r($statment->errorInfo());
+				
+				}
 			}
 		}
 	}

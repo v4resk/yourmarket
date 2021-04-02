@@ -1,3 +1,13 @@
+<?php
+require '../App/init.php';
+	if(isset($_SESSION['db_user'])){
+		echo "<script> location.href='myAccount.php'; </script>";
+        exit;
+ 	}
+	else{
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,3 +41,5 @@
 	</form>
 </body>
 </html>
+
+<?php } ?>

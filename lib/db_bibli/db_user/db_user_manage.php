@@ -95,12 +95,12 @@ public function db_addUser(){
 			
 			if (!$statment->execute()) {
 			    print_r($statment->errorInfo());
+			    return true;
 			}
 			
-			return true;
-		}else {
-			return false;
-		}
+			}else {
+				return false;
+			}
 	}
 }
 }	
