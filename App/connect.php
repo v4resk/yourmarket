@@ -20,6 +20,7 @@ if(isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
 	$user_connect_attempt = new db_user($db,$userEmail);
 	if($user_connect_attempt->hasPasswd($userPasswd)){
 		$_SESSION["db_user"]=$user_connect_attempt;
+		$_SESSION['green_alert'] = create_alert_green("Succeffully log in");
 	}
 }
 
@@ -28,6 +29,7 @@ if(isset($_POST['subSignUp'])){
 	$temp_manager_to_addUser = new db_user_manage($db);
 	//Add user to DB
 	$temp_manager_to_addUser->db_addUser();
+	$_SESSION['blue_alert'] = create_alert_blue("Succeffully sign up");
 }
 
 if(isset($_POST['subPubItemConf'])){
@@ -35,9 +37,11 @@ if(isset($_POST['subPubItemConf'])){
 	$temp_manager_to_addItem = new db_item_manage($db);
 	//add item to db
 	$temp_manager_to_addItem->db_addItem();
+	$_SESSION['green_alert'] = create_alert_green("Item succeffully posted");
 }
 if(isset($_POST['killSession'])){
 	session_unset();
+	$_SESSION['blue_alert'] = create_alert_blue("Succeffully log out");
 }
 
 $_POST[] = array();

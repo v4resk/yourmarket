@@ -1,22 +1,6 @@
 <?php require '../App/init.php'; ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-<?php
-		
-	if(isset($_SESSION['db_user'])){
-	echo $_SESSION['db_user']->getEmail();}
-
-	$lucasUser = new db_user($db,'lucas.heurtin@free.fr');
-	$lucasUser->setPasswd('Lagar');
-	
-	$managerDB = new db_user_manage($db);
-	$managerDB->db_updateUser($lucasUser);
-
-	
-?>
-
 <head>
 	<title>Home Page</title>
 	<meta charset="utf-8">
@@ -28,6 +12,7 @@
 
 </head>
 <body>
+	<?php  require '../App/check_alert.php' ?>
 <!-- HEADER -->
 	<div class="headr">
 		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
