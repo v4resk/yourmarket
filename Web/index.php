@@ -1,22 +1,6 @@
 <?php require '../App/init.php'; ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
-<?php
-		
-	if(isset($_SESSION['db_user'])){
-	echo $_SESSION['db_user']->getEmail();}
-
-	$lucasUser = new db_user($db,'lucas.heurtin@free.fr');
-	$lucasUser->setPasswd('Lagar');
-	
-	$managerDB = new db_user_manage($db);
-	$managerDB->db_updateUser($lucasUser);
-
-	
-?>
-
 <head>
 	<title>Home Page</title>
 	<meta charset="utf-8">
@@ -28,6 +12,7 @@
 
 </head>
 <body>
+	<?php  require '../App/check_alert.php' ?>
 <!-- HEADER -->
 	<div class="headr">
 		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
@@ -39,23 +24,23 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
 						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
-						<a class="dropdown-item" href="wine.html" style="color:grey; ">Wine</a><br>
-							<a class="dropdown-item" href="beer.html" style="color: grey;  ">Beer</a><br>
-							<a class="dropdown-item" href="liquor.html" style="color:grey; ">Liquor</a><br>
+						<a class="dropdown-item" href="wine.php" style="color:grey; ">Wine</a><br>
+							<a class="dropdown-item" href="beer.php" style="color: grey;  ">Beer</a><br>
+							<a class="dropdown-item" href="liquor.php" style="color:grey; ">Liquor</a><br>
 						</div>
 					</li>
 					<li>
 						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buying</a>
 						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
-							<a class="dropdown-item" href="buyItNow.html" style="color:grey; ">Buy it now</a><br>
-							<a class="dropdown-item" href="bestOffer.html" style="color: grey; ">Best offer</a><br>
-							<a class="dropdown-item" href="auctions.html" style="color:grey; ">Auctions</a><br>
+							<a class="dropdown-item" href="buyItNow.php" style="color:grey; ">Buy it now</a><br>
+							<a class="dropdown-item" href="bestOffer.php" style="color: grey; ">Best offer</a><br>
+							<a class="dropdown-item" href="auctions.php" style="color:grey; ">Auctions</a><br>
 						</div>
 					</li>
 					<li><a href="sell.php">Sell</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="cart.html"><img src="cart.png" width="30" height="30" ></a></li>
+					<li><a href="cart.php"><img src="cart.png" width="30" height="30" ></a></li>
 
 					<li><a href="signInOrSignUp.php"><img src="profile_icon.png" width="30" height="30"></a></li>
 
@@ -91,7 +76,7 @@
 			<div class="col-mb-7">@ Copyright YourMarket 2021</div>
 
 			<ul class="footer-nav">
-				<li> <a href = "index.html">Home</a></li>
+				<li> <a href = "index.php">Home</a></li>
 				<li> <a href="mailto:support@yourmarket.com">Contact</li>
 				<p> support@yourmarket.com</p>
 				<p>+44 7800 987654</p>
