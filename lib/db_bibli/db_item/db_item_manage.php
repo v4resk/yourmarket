@@ -93,8 +93,22 @@ class db_item_manage{
 		}
 	}
 
+	public function getItemTabFromWhere($whereClause){
+		if(isset($this->db)){
+			$sqlQuery= "SELECT * FROM Item WHERE ".$whereClause;
+			$statment = $this->db->prepare($sqlQuery);
+			$statment->execute();
+			$itemTab = [];
+			$i = 0;
+			while ($resp = $statment->fetch()) {
+				$itemTab[$i] = new db_item($this->db,(int)$resp['id_item']);
+				$i++; 
+			}
+			return $itemTab;
+		}
+	}
+
 
 }
-
 
 ?>

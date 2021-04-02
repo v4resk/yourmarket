@@ -1,3 +1,12 @@
+
+<?php require '../App/init.php'; ?>
+<?php require '../App/check_alert.php' ?>
+<?php 
+	$whereClause = "category = \"wine\"";
+	$itemManager = new db_item_manage($db);
+	$tabItem = $itemManager->getItemTabFromWhere($whereClause);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +56,12 @@
 
 <!--NAV-->
 	<div class="navigation" >
-		<p>Wine</p>
+		<?php 
+			for($i=0;$i<sizeof($tabItem);$i++){
+				echo $tabItem[$i]->getIdItem();
+			}
+
+		 ?>
 	</div>
 
 <!--FOOTER-->
