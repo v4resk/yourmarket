@@ -5,7 +5,7 @@ if(!isset($_SESSION['db_user'])){
 		echo "<script> location.href='signInOrSignUp.php'; </script>";
 		$_SESSION['red_alert'] = create_alert_red("You need to Sign up/Sing in before");
         exit;
- 	}else if($_SESSION['db_user']->getWhoAmI() != "sell" ){
+ 	}else if($_SESSION['db_user']->getWhoAmI() != "custo" ){
  		echo "<script> location.href='index.php'; </script>";
  		$_SESSION['red_alert'] = create_alert_red("You need to be register as a seller ");
         exit;
@@ -63,7 +63,7 @@ if(!isset($_SESSION['db_user'])){
 	<div class="navigation" >
 		<h1 style="margin-left: 550px; color: #402019; ">Add an item to sell</h1> 
 
-		<form action="sellConfirmation.php" method="post">
+		<form action="sellConfirmation.php" method="post"  enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="item_name" style="margin-left: 450px;">Name</label>
 				<input type="text" class="form-control is-valid" name="item_name" aria-describedby="nameHelp" placeholder="Enter item's Name" required style="width: 35%; margin-left: 450px; ">

@@ -55,7 +55,20 @@
 		<br>
 		<br>
 		<form action="index.php" method="post">
-		<img src="<?php echo $_POST["pic"]?>" width="250" heigth="250" style="margin-left: 42%">
+			<?php //Here we upload the pic
+					   if(isset($_POST['subPubItem'])){
+            				$location = 'uploads/';      
+            				if(copy($_FILES['pic']['tmp_name'], $location.$_FILES['pic']['name'])){
+                				echo "<input type=\"hidden\" name=\"pic\" value=\"".$_FILES['pic']['name']."\"> ";
+            				}
+        				}else {
+            			echo 'You should select a file to upload !!';
+        				}
+    				
+					
+
+			?>
+		<img src="../uploads/<?php echo $_FILES['pic']['name']?>" width="250" heigth="250" style="margin-left: 42%">
 		<p style="text-align: center">Name : <?php echo $_POST["item_name"]?></p>
 		<p style="text-align: center">Category : <?php echo $_POST["category"]?></p>
 		<p style="text-align: center">Description : <?php echo $_POST["info"]?></p>

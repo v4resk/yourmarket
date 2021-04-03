@@ -56,7 +56,7 @@
 	if(isset($_POST["phone"])){
 		$_SESSION['db_user']->setPhone($_POST["phone"]);
 	}
-	if ($_POST["dateOfBirth"]) {
+	if (isset($_POST["dateOfBirth"])) {
 		$_SESSION['db_user']->setDateOfBirth($_POST["dateOfBirth"]);	
 	}
 
@@ -65,9 +65,10 @@
 	<form action="" method="post">
 
 		<div class="form-group">
-			<label for="email" style="margin-left: 450px;">E Mail</label>
-			<input type="email" class="form-control is-valid" name="email" aria-describedby="emailHelp" placeholder="<?php echo $_SESSION['db_user']->getEmail()?>" value="<?php echo $_SESSION['db_user']->getEmail()?>"style="width: 35%; margin-left: 450px; ">
+			<label for="email" style="margin-left: 450px;">Email</label>
+			<input type="email" class="form-control is-valid" name="email" aria-describedby="emailHelp" placeholder=" <?php echo $_SESSION['db_user']->getEmail() ?>" value="<?php echo $_SESSION['db_user']->getEmail()?>" style="width: 35%; margin-left: 450px; ">
 		</div>
+
 		<div class="form-group">
 			<label for="name" style="margin-left: 450px;">Name</label>
 			<input type="text" class="form-control is-valid" name="name" aria-describedby="nameHelp" placeholder="<?php echo $_SESSION['db_user']->getName()?>" value="<?php echo $_SESSION['db_user']->getName()?>"style="width: 35%; margin-left: 450px; ">
@@ -89,6 +90,7 @@
 			<input type="text" class="form-control is-valid" name="addr1" aria-describedby="addr1Help" placeholder="<?php echo $_SESSION['db_user']->getAddr1()?>" value="<?php echo $_SESSION['db_user']->getAddr1()?>" style="width: 35%; margin-left: 450px; ">
 		</div>
 		<div class="form-group">
+
 			<label for="addr2" style="margin-left: 450px;">Address 2</label>
 			<input type="text" class="form-control is-valid" name="addr2" aria-describedby="addr2Help" placeholder="<?php echo $_SESSION['db_user']->getAddr2()?>" value="<?php echo $_SESSION['db_user']->getAddr2()?>" style="width: 35%; margin-left: 450px; ">
 		</div>

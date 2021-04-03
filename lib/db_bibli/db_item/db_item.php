@@ -16,6 +16,8 @@ class db_item{
 	private $seller_id;
 	private $customer_id;
 
+	private $pic;
+
 	private function hydrate($data_item){
 		if(isset($data_item['id_item'])){
 			$this->id_item = $data_item['id_item'];
@@ -24,13 +26,13 @@ class db_item{
 			$this->name = $data_item['name'];
 		}
 		if(isset($data_item['sellBID'])){
-			$this->sellBID = $data_item['sellBID'];
+			$this->sellBID = (int)$data_item['sellBID'];
 		}
 		if(isset($data_item['sellBO'])){
-			$this->sellBO = $data_item['sellBO'];
+			$this->sellBO = (int)$data_item['sellBO'];
 		}
 		if(isset($data_item['sellBIN'])){
-			$this->sellBIN = $data_item['sellBIN'];
+			$this->sellBIN = (int)$data_item['sellBIN'];
 		}
 		if(isset($data_item['category'])){
 			$this->category = $data_item['category'];
@@ -55,6 +57,9 @@ class db_item{
 		}
 		if(isset($data_item['customer_id'])){
 			$this->customer_id = $data_item['customer_id'];
+		}
+		if(isset($data_item['pic'])){
+			$this->pic = $data_item['pic'];
 		}
 	}
 
@@ -110,6 +115,18 @@ class db_item{
 	public function getCustomerId(){
 		return $this->customer_id;
 	}
+
+	public function getSellMeth(){
+		$str = "";
+		if($this->getSellBIN()==1){$str.=" BIN";}
+		if($this->getSellBO()==1){$str.=" BO";}
+		if($this->getSellBID()==1){$str.=" BID";}
+		return $str;
+	}
+
+	public function getPic(){
+		return $this->pic;
+	}
 	//-------------------SET---------------------
 
 	public function setIdItem($id){
@@ -150,6 +167,9 @@ class db_item{
 	}
 	public function setCustomerId($custId){
 		$this->customer_id = $custId;
+	}
+	public function setPic($pic_url){
+		$this->pic = $pic_url;
 	}
 }
 ?>
