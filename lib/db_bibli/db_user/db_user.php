@@ -45,7 +45,7 @@ class db_user{
 		if(isset($user_data['photo_id'])){
 			$this->photoId = $user_data['photo_id'];
 		}
-		if(isset($user_data['adrr1'])){
+		if(isset($user_data['addr1'])){
 			$this->addr1 = $user_data['addr1'];
 		}
 		if(isset($user_data['addr2'])){

@@ -1,3 +1,5 @@
+<?php ini_set('display_errors', 'on');?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
