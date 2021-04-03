@@ -1,3 +1,5 @@
+<?php require '../App/init.php'; ?>
+<?php ini_set('display_errors', 'on');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +23,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-left">
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">user</a>
+						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
 						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
 						<a class="dropdown-item" href="adduser.php" style="color:grey; ">Add User</a><br>
 							<a class="dropdown-item" href="deleteuser.php" style="color: grey;  ">Delete User</a><br>
@@ -44,17 +46,27 @@
 	</div>
 
 <!--NAV-->
-	<div class="form-group">
-				<label for="category" style="margin-left: 450px;">List of users </label>
-				<input list="datauser" name="datauser" style="margin-left: 450px; width: 35%;">
-				<datalist id="datauser">
-					<option value="lucas">
-					<option value="Alexandre">
-					<option value="harry">
-				</datalist>
-		<form method="post" action="index.php">
-    <button type="submit" name="idToDelete" value="1">Supprimer</button>
 
+<?php 
+
+
+
+$sqlQuery="SELECT * FROM User";
+$statement=$db->query($sqlQuery);?>
+<form action="" method="post">
+	<label for="delete" style="margin-left: 42%;">Choose an user to delete</label>
+	<input list="list" name="delete" autocomplete="off" style="margin-left: 42%;">
+	<datalist id="list">
+	<?php
+	while ($result=$statement->fetch()) {
+		?>
+		<option value="<?php echo $result["email"] ;?>">
+		<?php
+	}
+
+	?>
+	</datalist>
+	<input type="submit" name="deleteSubmit" value="Delete">
 </form>
 <!--FOOTER-->
 <footer class="site-footer">

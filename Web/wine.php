@@ -40,7 +40,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="cart.php"><img src="cart.png" width="30" height="30" ></a></li>
-					<li><a href="signInOrSignUp"><img src="profile_icon.png" width="30" height="30"></a></li>
+					<li><a href="signInOrSignUp.php"><img src="profile_icon.png" width="30" height="30"></a></li>
 				</ul>
 			</div>
         </nav>

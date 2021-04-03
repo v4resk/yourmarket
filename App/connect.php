@@ -44,6 +44,15 @@ if(isset($_POST['killSession'])){
 	$_SESSION['blue_alert'] = create_alert_blue("Succeffully log out");
 }
 
+
+if(isset($_POST["deleteSubmit"])){
+
+	$userToDelete = new db_user($db,$_POST["delete"]);
+	$userManager = new db_user_manage($db);
+	$userManager->db_deleteUser($userToDelete);
+
+}
+
 $_POST[] = array();
-	
+
 ?>
