@@ -1,3 +1,4 @@
+<?php ini_set('display_errors', 'on');?>
 <?php
 require '../App/init.php';
 if(!isset($_SESSION['db_user'])){
