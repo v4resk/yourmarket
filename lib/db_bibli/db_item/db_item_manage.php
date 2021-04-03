@@ -32,8 +32,10 @@ class db_item_manage{
 				$toTime= $item->getToTime();
 				$seller_id= $item->getSellerId();
 				$customer_id= $item->getCustomerId();
+				$pic = $item->getPic();
 
-				$sqlQuery = "UPDATE Item SET name = :name, sellBID= :sellBID, sellBO = :sellBO, sellBIN = :sellBIN, category = :category, info = :info, delivery_price = :delivery_price, price = :price, fromTime = :fromTime, toTime = :toTime, seller_id = :seller_id, customer_id = :customer_id WHERE id_item = :id_item";
+
+				$sqlQuery = "UPDATE Item SET name = :name, sellBID= :sellBID, sellBO = :sellBO, sellBIN = :sellBIN, category = :category, info = :info, delivery_price = :delivery_price, price = :price, fromTime = :fromTime, toTime = :toTime, seller_id = :seller_id, customer_id = :customer_id, pic = :pic WHERE id_item = :id_item";
 				$statment = $this->db->prepare($sqlQuery);
 				$statment->bindParam(':name',$name,PDO::PARAM_STR);
 				$statment->bindParam(':sellBID',$sellBID,PDO::PARAM_BOOL);
@@ -48,7 +50,7 @@ class db_item_manage{
 				$statment->bindParam(':seller_id',$seller_id,PDO::PARAM_STR);
 				$statment->bindParam(':customer_id',$customer_id,PDO::PARAM_STR);
 				$statment->bindParam(':id_item',$id_item,PDO::PARAM_INT);
-
+				$statment->bindParam(':pic',$pic,PDO::PARAM_STR);
 				$statment->execute();
 		}
 	}
@@ -68,9 +70,10 @@ class db_item_manage{
 				$fromTime= $_POST['fromTime'];
 				$toTime= $_POST['toTime'];
 				$seller_id= $_SESSION['db_user']->getEmail();
+				$pic = $_POST['pic'];
 				
 
-				$sqlQuery = "INSERT INTO Item (id_item,name,sellBID,sellBO,sellBIN,category,info,delivery_price,price,fromTime,toTime,seller_id,customer_id) VALUES (NULL,:name,:sellBID,:sellBO,:sellBIN,:category,:info,:delivery_price,:price,:fromTime,:toTime,:seller_id,NULL)";
+				$sqlQuery = "INSERT INTO Item (id_item,name,sellBID,sellBO,sellBIN,category,info,delivery_price,price,fromTime,toTime,seller_id,customer_id,pic) VALUES (NULL,:name,:sellBID,:sellBO,:sellBIN,:category,:info,:delivery_price,:price,:fromTime,:toTime,:seller_id,NULL,:pic)";
 
 				$statment = $this->db->prepare($sqlQuery);
 				$statment->bindParam(':name',$name,PDO::PARAM_STR);
@@ -84,6 +87,7 @@ class db_item_manage{
 				$statment->bindParam(':fromTime',$fromTime,PDO::PARAM_STR);
 				$statment->bindParam(':toTime',$toTime,PDO::PARAM_STR);
 				$statment->bindParam(':seller_id',$seller_id,PDO::PARAM_STR);
+				$statment->bindParam(':pic',$pic,PDO::PARAM_STR);
 
 				if (!$statment->execute()) {
 			    print_r($statment->errorInfo());

@@ -2,16 +2,17 @@
 <?php require '../App/init.php'; ?>
 <?php require '../App/check_alert.php' ?>
 <?php 
-	$whereClause = "sellBID = \"1\"";
-	$itemManager = new db_item_manage($db);
-	$tabItem = $itemManager->getItemTabFromWhere($whereClause);
+	if(!isset($_POST['id_item'])){
+		echo "<script> location.href='index.php'; </script>";
+		$_SESSION['red_alert'] = create_alert_red("Can't find the item");
+        exit;
+	}
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Auctions</title>
+	<title>Cart</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="template.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -56,32 +57,36 @@
 	</div>
 
 <!--NAV-->
+
+	<?php
+
+		$item = new db_item($db,$_POST['id_item']);
+
+	?>
 	<div class="navigation" >
-		<div class="card_gr">
-			<?php 
-					for($i=0;$i<sizeof($tabItem);$i++){		
-				 ?>
-				<div class="card" style="width: 18rem; border: 1px solid black; box-shadow: 1px; margin-bottom: 10px; margin-left: 10px;">
-			  		<img src="uploads/<?php echo $tabItem[$i]->getPic();?>" class="card-img-top" alt="<?php echo $tabItem[$i]->getPic();?>" width="178" height="200">
-			  		<div class="card-body">
-				    	<h5 class="card-title"><STRONG><?php echo $tabItem[$i]->getName(); ?></STRONG></h5>
-				    	<p class="card-text"><?php echo $tabItem[$i]->getInfo(); ?></p>
-				  	</div>
-			  		<ul class="list-group list-group-flush">
-				    <li class="list-group-item">Sell methode: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
-				    <li class="list-group-item">Category: <?php echo $tabItem[$i]->getCategory(); ?></li>
-				    <li class="list-group-item">Price: <?php echo $tabItem[$i]->getPrice(); ?></li>
-			  		</ul>
-				  	<div class="card-body">
-				  		<form method="post" action="buyItem.php">
-				  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
-				    	<p><center><button type="submit" class="btn btn-success">Purchase</button></center></p>
-				    	</form>
-				  </div>
-				
-				</div>
-			<?php }
-							?>
+		<ul class="nav nav-tabs" style="width: 80%">
+			<li class="active"><a data-toggle="tab" href="#infoItem">Info</a></li>
+		 	<li><a data-toggle="tab" href="#BuyBestOffer">Buy Best Offer</a></li>
+		 	<li><a data-toggle="tab" href="#BuyAuction">Buy Auction</a></li>
+		 	<li><a data-toggle="tab" href="#BuyItNow">Buy It Now</a></li>
+		</ul>
+		<div class="tab-content">
+		  <div id="infoItem" class="tab-pane fade in active">
+		    <h3>INFO</h3>
+		    <img src="uploads/">
+		  </div>
+		  <div id="BuyBestOffer" class="tab-pane fade">
+		  	<h3>Best Offer</h3>
+		    <p>Some content in menu 1.</p>
+		  </div>
+		  <div id="BuyAuction" class="tab-pane fade">
+		    <h3>Auction</h3>
+		    <p>Some content in menu 2.</p>
+		  </div>
+		  <div id="BuyItNow" class="tab-pane fade">
+		    <h3>It Now</h3>
+		    <p>Some content in menu 3.</p>
+		  </div>
 		</div>
 	</div>
 
@@ -111,7 +116,8 @@
 				<li> <a href="mailto:support@yourmarket.com">Contact</li>
 				<p> support@yourmarket.com</p>
 				<p>+44 7800 987654</p>
-			</ul>			
+			</ul>
+			
 	</div>
 	</div>
 	</footer>

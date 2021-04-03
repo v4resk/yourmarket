@@ -22,6 +22,9 @@ if(isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
 		$_SESSION["db_user"]=$user_connect_attempt;
 		$_SESSION['green_alert'] = create_alert_green("Succeffully log in");
 	}
+	else{
+		$_SESSION['red_alert'] = create_alert_red("log in failed");
+	}
 }
 
 if(isset($_POST['subSignUp'])){

@@ -53,7 +53,8 @@ CREATE TABLE `Item` (
   `fromTime` DATETIME NOT NULL,
   `toTime` DATETIME,
   `seller_id` VARCHAR(40) NOT NULL,
-  `customer_id` VARCHAR(40)
+  `customer_id` VARCHAR(40),
+  `pic` VARCHAR(40)
 );
 
 CREATE TABLE `Cart`(
