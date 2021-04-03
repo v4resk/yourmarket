@@ -56,9 +56,7 @@
 	if(isset($_POST["phone"])){
 		$_SESSION['db_user']->setPhone($_POST["phone"]);
 	}
-	if (isset($_POST["dateOfBirth"])) {
-		$_SESSION['db_user']->setDateOfBirth($_POST["dateOfBirth"]);	
-	}
+	
 
 	?>
 

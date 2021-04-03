@@ -32,7 +32,7 @@ if(isset($_POST['subSignUp'])){
 	$temp_manager_to_addUser = new db_user_manage($db);
 	//Add user to DB
 	$temp_manager_to_addUser->db_addUser();
-	$_SESSION['blue_alert'] = create_alert_blue("Succeffully sign up");
+	$_SESSION['blue_alert'] = create_alert_blue("Succeffully regristered");
 }
 
 if(isset($_POST['subPubItemConf'])){

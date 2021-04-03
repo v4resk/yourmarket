@@ -61,19 +61,38 @@
 	<?php
 
 		$item = new db_item($db,$_POST['id_item']);
+		$BuyBestOffer = "#BuyBestOffer";
+		$BuyAuction = "#BuyAuction";
+		$BuyItNow = "#BuyItNow";
+		$null = "#";
 
 	?>
 	<div class="navigation" >
-		<ul class="nav nav-tabs" style="width: 80%">
+
+
+		<ul class="nav nav-tabs" style="width: 80%; ">
 			<li class="active"><a data-toggle="tab" href="#infoItem">Info</a></li>
-		 	<li><a data-toggle="tab" href="#BuyBestOffer">Buy Best Offer</a></li>
-		 	<li><a data-toggle="tab" href="#BuyAuction">Buy Auction</a></li>
-		 	<li><a data-toggle="tab" href="#BuyItNow">Buy It Now</a></li>
+		 	<li><a data-toggle="tab" href="<?php if($item->getSellBO()){echo $BuyBestOffer;}else{echo $null;} ?>">Buy Best Offer</a></li>
+		 	<li><a data-toggle="tab" href="<?php if($item->getSellBID()){echo $BuyAuction;}else{echo $null;} ?>">Buy Auction</a></li>
+		 	<li><a data-toggle="tab" href="<?php if($item->getSellBIN()){echo $BuyItNow;}else{echo $null;} ?>">Buy It Now</a></li>
 		</ul>
-		<div class="tab-content">
+		<div class="tab-content" >
 		  <div id="infoItem" class="tab-pane fade in active">
-		    <h3>INFO</h3>
-		    <img src="uploads/">
+		    <div class="sellContent">
+		    <img src="uploads/<?php echo $item->getPic(); ?>" width="240" height="280" >
+		    	<div class="sellChild">
+		    		<h1><?php echo $item->getName();?></h1>
+		    		<h3>Price:<?php echo " ".$item->getPrice()."£"; ?></h3>
+		    		<h5><cite>Sell by:</cite> <?php echo $item->getSellMeth(); ?></h5>
+		    		<h5><cite>description:</cite> <?php echo $item->getInfo(); ?></h5>
+		    		<h5><cite>Category:</cite> <?php echo $item->getCategory(); ?></h5>
+		    		<h5><cite>Seller:</cite> <?php echo $item->getSellerId(); ?></h5>
+		    		<h5><cite>Started:</cite> <?php echo $item->getFromTime(); ?></h5>
+		    		<h5><cite>end:</cite> <?php echo $item->getToTime(); ?></h5>
+		    		
+		    		
+		    	</div>
+			</div>
 		  </div>
 		  <div id="BuyBestOffer" class="tab-pane fade">
 		  	<h3>Best Offer</h3>
@@ -84,10 +103,15 @@
 		    <p>Some content in menu 2.</p>
 		  </div>
 		  <div id="BuyItNow" class="tab-pane fade">
-		    <h3>It Now</h3>
-		    <p>Some content in menu 3.</p>
+		  	<form action="" method="post">
+		    <h3>Buy It Now</h3>
+		    <h3>Price:<?php echo " ".$item->getPrice()."£"; ?> </h3><input type="submit" name="BINSub">
+		    </form>
 		  </div>
 		</div>
+
+
+
 	</div>
 
 <!--FOOTER-->
