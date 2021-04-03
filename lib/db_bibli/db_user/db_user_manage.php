@@ -12,7 +12,7 @@ class db_user_manage{
 		if(isset($this->db)){
 			$user_email_string = (String)$user->getEmail(); 
 			$sqlQuery="DELETE From User WHERE email = :user_email";
-			$statment = $this->bd->prepare($sqlQuery);
+			$statment = $this->db->prepare($sqlQuery);
 			$statment->bindParam(':user_email',$user_email_string,PDO::PARAM_STR);
 			$statment->execute();
 		}
@@ -33,7 +33,7 @@ class db_user_manage{
 			$user_city = (String)$user->getcity();
 			$user_zip = (String)$user->getZip();
 			$user_country = (String)$user->getCountry();
-			$user_phone = (String)$user->getPhone();
+			$user_phone = $user->getPhone();
 
 			$sqlQuery = "UPDATE User SET name = :name, firstName = :firstName, date_naissance = :date_naissance , mdp = :passwd, whoAmI = :whoAmI, id_billInfo = :id_billInfo, fav_background_number = :favBack, photo_id = :photo_id, addr1 = :addr1, addr2 = :addr2, city = :city, postal_code = :zip, country = :country, phone = :phone WHERE email = :email";
 			$statment = $this->db->prepare($sqlQuery);
@@ -60,7 +60,7 @@ class db_user_manage{
 
 public function db_addUser(){
 	if(isset($this->db)){
-		if(isset($_POST['user_email']) && isset($_POST['user_name']) && isset($_POST['user_fName']) && isset($_POST['user_date_of_b']) && isset($_POST['user_Passwd'])&& isset($_POST['user_addr1']) && isset($_POST['user_city']) && isset($_POST['user_country']) && isset($_POST['user_phone'])){
+		if(isset($_POST['user_email']) && isset($_POST['user_name']) && isset($_POST['user_fName']) && isset($_POST['user_date_of_b']) && isset($_POST['user_Passwd'])&& isset($_POST['user_addr1']) && isset($_POST['user_city']) && isset($_POST['user_country']) && isset($_POST['user_phone']) ){
 
 
 			$user_email=(String)$_POST['user_email'];
