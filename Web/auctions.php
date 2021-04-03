@@ -1,4 +1,3 @@
-
 <?php require '../App/init.php'; ?>
 <?php require '../App/check_alert.php' ?>
 <?php 
@@ -6,7 +5,6 @@
 	$itemManager = new db_item_manage($db);
 	$tabItem = $itemManager->getItemTabFromWhere($whereClause);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">

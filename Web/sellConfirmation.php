@@ -1,3 +1,4 @@
+<?php ini_set('display_errors', 'on');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
 </head>
 <body>
 <!-- HEADER -->
+
 	<div class="headr">
 		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
