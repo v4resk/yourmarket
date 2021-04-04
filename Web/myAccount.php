@@ -74,7 +74,38 @@
 	<form action="index.php" method="POST">
 		<p style="text-align: center;"><input style="text-align: center;" type="submit" name="killSession" value="Log out"></p>
 	</form>
-	
 
+<!--FOOTER-->
+	
+<footer class="site-footer">
+		<div class="container">
+		<div class="row">
+			
+		
+			<div class="col-mb-5"> 
+				<h4>Contact Adress</h4>
+				<address>
+					<br>
+					HA3 5FB Mondrian Court <br>
+					10 Artisan Place <br>
+					Harrow <br>(  )
+					Wealdstone
+				</address>
+
+			</div>
+			</div>
+			<div class="bottom-footer">
+			<div class="col-mb-7">@ Copyright YourMarket 2021</div>
+
+			<ul class="footer-nav">
+				<li> <a href = "index.php">Home</a></li>
+				<li> <a href="mailto:support@yourmarket.com">Contact</li>
+				<p> support@yourmarket.com</p>
+				<p>+44 7800 987654</p>
+			</ul>
+			
+	</div>
+	</div>
+	</footer>
 </body>
 </html>  

@@ -70,43 +70,62 @@
 	<div class="navigation" >
 
 
-		<ul class="nav nav-tabs tabs-left" style="width: 80%; ">
-			<li class="active"><a data-toggle="tab" href="#infoItem">Info</a></li>
+
+		<ul class="nav nav-tabs" style="width: 80%; ">
 		 	<li><a data-toggle="tab" href="<?php if($item->getSellBO()){echo $BuyBestOffer;}else{echo $null;} ?>">Buy Best Offer</a></li>
 		 	<li><a data-toggle="tab" href="<?php if($item->getSellBID()){echo $BuyAuction;}else{echo $null;} ?>">Buy Auction</a></li>
 		 	<li><a data-toggle="tab" href="<?php if($item->getSellBIN()){echo $BuyItNow;}else{echo $null;} ?>">Buy It Now</a></li>
 		</ul>
 		<div class="tab-content" >
-		  <div id="infoItem" class="tab-pane fade in active">
-		    <div class="sellContent">
-		    <img src="uploads/<?php echo $item->getPic(); ?>" width="240" height="280" >
-		    	<div class="sellChild">
-		    		<h1><?php echo $item->getName();?></h1>
-		    		<h3>Price:<?php echo " ".$item->getPrice()."£"; ?></h3>
-		    		<h5><cite>Sell by:</cite> <?php echo $item->getSellMeth(); ?></h5>
-		    		<h5><cite>description:</cite> <?php echo $item->getInfo(); ?></h5>
-		    		<h5><cite>Category:</cite> <?php echo $item->getCategory(); ?></h5>
-		    		<h5><cite>Seller:</cite> <?php echo $item->getSellerId(); ?></h5>
-		    		<h5><cite>Started:</cite> <?php echo $item->getFromTime(); ?></h5>
-		    		<h5><cite>end:</cite> <?php echo $item->getToTime(); ?></h5>
-		    		
-		    		
-		    	</div>
-			</div>
-		  </div>
 		  <div id="BuyBestOffer" class="tab-pane fade">
 		  	<h3>Best Offer</h3>
 		    <p>Some content in menu 1.</p>
 		  </div>
 		  <div id="BuyAuction" class="tab-pane fade">
-		    <h3>Auction</h3>
-		    <p>Some content in menu 2.</p>
+		  	<br>
+			    <div class="sellContent">
+			    <img src="uploads/<?php echo $item->getPic(); ?>" width="240" height="280" >
+			    	<div class="sellChild">
+			    		<h1><?php echo $item->getName();?></h1>
+			    		<h3>Price:<?php echo " ".$item->getPrice()."£"; ?></h3>
+			    		<h5><cite>Sell by:</cite> <?php echo $item->getSellMeth(); ?></h5>
+			    		<h5><cite>Description:</cite> <?php echo $item->getInfo(); ?></h5>
+			    		<h5><cite>Category:</cite> <?php echo $item->getCategory(); ?></h5>
+			    		<h5><cite>Seller:</cite> <?php echo $item->getSellerId(); ?></h5>
+			    		<h5><cite>Started:</cite> <?php echo $item->getFromTime(); ?></h5>
+			    		<h5><cite>End:</cite> <?php echo $item->getToTime(); ?></h5><br><br>		
+			    	</div>
+				</div>
+				<form action="payment.php" method="post">
+					<div class="form-group">
+						<label for="actualPrice" style="margin-left: 20px;">Actual Price (£)</label>
+						<input type="number" class="form-control "  readonly name="actualPrice" aria-describedby="actualPriceHelp" placeholder="0.889" style="width: 35%; margin-left: 20px;" >
+					</div>
+					<div class="form-group">
+						<label for="bidPrice" style="margin-left: 20px;">Bid Price (£)</label>
+						<input type="number" class="form-control " required name="actualPrice" aria-describedby="actualPriceHelp"  style="width: 35%; margin-left: 20px;" >
+					</div>
+		    	<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button></p>
+
+				</form>	
 		  </div>
 		  <div id="BuyItNow" class="tab-pane fade">
-		  	<form action="" method="post">
-		    <h3>Buy It Now</h3>
-		    <h3>Price:<?php echo " ".$item->getPrice()."£"; ?> </h3><input type="submit" name="BINSub">
-		    </form>
+		      <div class="sellContent">
+			    <img src="uploads/<?php echo $item->getPic(); ?>" width="240" height="280" >
+			    	<div class="sellChild">
+			    		<h1><?php echo $item->getName();?></h1>
+			    		<h3>Price:<?php echo " ".$item->getPrice()."£"; ?></h3>
+			    		<h5><cite>Sell by:</cite> <?php echo $item->getSellMeth(); ?></h5>
+			    		<h5><cite>Description:</cite> <?php echo $item->getInfo(); ?></h5>
+			    		<h5><cite>Category:</cite> <?php echo $item->getCategory(); ?></h5>
+			    		<h5><cite>Seller:</cite> <?php echo $item->getSellerId(); ?></h5>
+			    		<h5><cite>Started:</cite> <?php echo $item->getFromTime(); ?></h5>
+			    		<h5><cite>End:</cite> <?php echo $item->getToTime(); ?></h5><br><br>		
+			    	</div>
+			    </div>
+				<form action="payment.php">
+					<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button></p>
+				</form>
 		  </div>
 		</div>
 

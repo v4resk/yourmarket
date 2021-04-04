@@ -48,6 +48,7 @@
         </nav>
 	</div>	
 
+
 	<form action="" method="post">
 
 		<div class="form-group">
@@ -104,7 +105,38 @@
 		<button type="submit" class="btn" style="margin-left: 450px;" name="subUpdate">Submit</button><br><br>
 	</form>
 		
+<!--FOOTER-->
+	
+<footer class="site-footer">
+		<div class="container">
+		<div class="row">
+			
+		
+			<div class="col-mb-5"> 
+				<h4>Contact Adress</h4>
+				<address>
+					<br>
+					HA3 5FB Mondrian Court <br>
+					10 Artisan Place <br>
+					Harrow <br>(  )
+					Wealdstone
+				</address>
 
+			</div>
+			</div>
+			<div class="bottom-footer">
+			<div class="col-mb-7">@ Copyright YourMarket 2021</div>
+
+			<ul class="footer-nav">
+				<li> <a href = "index.php">Home</a></li>
+				<li> <a href="mailto:support@yourmarket.com">Contact</li>
+				<p> support@yourmarket.com</p>
+				<p>+44 7800 987654</p>
+			</ul>
+			
+	</div>
+	</div>
+	</footer>
 
 </body>
 </html>   
