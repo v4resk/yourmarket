@@ -23,7 +23,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-left">
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">user</a>
+						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
 						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
 						<a class="dropdown-item" href="adduser.php" style="color:grey; ">Add User</a><br>
 							<a class="dropdown-item" href="deleteuser.php" style="color: grey;  ">Delete User</a><br>

@@ -23,11 +23,11 @@ class db_cart{
 
 	//----------------GET------------------------
 
-	public function getIdCustomer{
+	public function getIdCustomer(){
 		return $this->$id_customer;
 	}
 
-	public function getIdItem{
+	public function getIdItem(){
 		return $this->$id_item;
 	}
 
@@ -38,7 +38,7 @@ class db_cart{
 	}
 
 	public function setIdItem($id){
-		$this->id_item=$id;s
+		$this->id_item=$id;
 	}
 }
 ?>
