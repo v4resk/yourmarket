@@ -20,5 +20,25 @@ class db_cart{
 			}
 		}
 	}
+
+	//----------------GET------------------------
+
+	public function getIdCustomer{
+		return $this->$id_customer;
+	}
+
+	public function getIdItem{
+		return $this->$id_item;
+	}
+
+	//----------------SET------------------------	
+
+	public function setIdCustomer($id){
+		$this->id_customer=$id;
+	}
+
+	public function setIdItem($id){
+		$this->id_item=$id;s
+	}
 }
 ?>

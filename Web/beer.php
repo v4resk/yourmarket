@@ -83,7 +83,7 @@
 		</div>
 	</div>
 
-<!--FOOTER
+<!--FOOTER-->
 <footer class="site-footer">
 		<div class="container">
 		<div class="row">
@@ -113,6 +113,6 @@
 			
 	</div>
 	</div>
-	</footer>-->
+	</footer>
 </body>
 </html>

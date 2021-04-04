@@ -87,13 +87,8 @@
 	if(isset($_POST["phone"])){
 		$_SESSION['db_user']->setPhone($_POST["phone"]);
 	}
-<<<<<<< HEAD
-	if ($_POST["dateOfBirth"]) {
-		$_SESSION['db_user']->setDateOfBirth($_POST["dateOfBirth"]);	
-	}
-=======
-	
->>>>>>> 8398eff0016a69526bfc4943143a14a01099b286
+
+
 
 	?>
 
@@ -152,7 +147,38 @@
 		<button type="submit" class="btn" style="margin-left: 450px;" name="subSignUp">Submit</button><br><br>
 	</form>
 		
+<!--FOOTER-->
+	
+<footer class="site-footer">
+		<div class="container">
+		<div class="row">
+			
+		
+			<div class="col-mb-5"> 
+				<h4>Contact Adress</h4>
+				<address>
+					<br>
+					HA3 5FB Mondrian Court <br>
+					10 Artisan Place <br>
+					Harrow <br>(  )
+					Wealdstone
+				</address>
 
+			</div>
+			</div>
+			<div class="bottom-footer">
+			<div class="col-mb-7">@ Copyright YourMarket 2021</div>
+
+			<ul class="footer-nav">
+				<li> <a href = "index.php">Home</a></li>
+				<li> <a href="mailto:support@yourmarket.com">Contact</li>
+				<p> support@yourmarket.com</p>
+				<p>+44 7800 987654</p>
+			</ul>
+			
+	</div>
+	</div>
+	</footer>
 
 </body>
 </html>   

@@ -73,6 +73,7 @@
 				  	<div class="card-body">
 				  		<form method="post" action="buyItem.php">
 				  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
+				  		<center><img src="addToCart.png" height="40" weight="40"></center><br>
 				    	<p><center><button type="submit" class="btn btn-success">Purchase</button></center></p>
 				    	</form>
 				  </div>
