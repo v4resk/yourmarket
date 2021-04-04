@@ -12,12 +12,21 @@ class db_cart{
 			$this->id_customer = data_cart['id_customer'];
 		}
 	}
-	public function __construct($db,$id_cust){
+	// We can construct a cart whith both id;
+	public function __construct($db,$id_cust,$id_item){
 		if(isset($db)){
-			$query_resp = $db->query('SELECT * FROM Cart WHERE id_customer=\''.$id_cust.'\'');
-			while ($data_user = $query_resp->fetch(PDO::FETCH_ASSOC)) {
+			if(isset($id_cust)){
+				$query_resp = $db->query('SELECT * FROM Cart WHERE id_customer=\''.$id_cust.'\'');
+				while ($data_user = $query_resp->fetch(PDO::FETCH_ASSOC)) {
 				$this->hydrate($data_user);
+				}
+			}else if(isset($id_item)){
+				$query_resp = $db->query('SELECT * FROM Cart WHERE id_item=\''.$id_item.'\'');
+				while ($data_user = $query_resp->fetch(PDO::FETCH_ASSOC)){
+				$this->hydrate($data_user);
+				}
 			}
+			
 		}
 	}
 
