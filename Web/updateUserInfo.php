@@ -1,4 +1,3 @@
-
 <?php require '../App/init.php'; ?>
 <!DOCTYPE html>
 <html>
@@ -12,10 +11,42 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
+<!-- HEADER -->
 	<div class="headr">
 		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
-  
+	<div class="row" id="">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-left">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
+							<a class="dropdown-item" href="wine.php" style="color:grey; ">Wine</a><br>
+							<a class="dropdown-item" href="beer.php" style="color: grey;  ">Beer</a><br>
+							<a class="dropdown-item" href="liquor.php" style="color:grey; ">Liquor</a><br>
+						</div>
+					</li>
+					<li>
+						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buying</a>
+						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
+							<a class="dropdown-item" href="buyItNow.php" style="color:grey; ">Buy it now</a><br>
+							<a class="dropdown-item" href="bestOffer.php" style="color: grey; ">Best offer</a><br>
+							<a class="dropdown-item" href="auctions.php" style="color:grey; ">Auctions</a><br>
+						</div>
+					</li>  
+					<li><a href="sell.php">Sell</a></li>
+					<li><a href="updateUserInfo.php">Update your Information</a></li>
+					<li><a href="userItems.php">Manage Items</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="cart.php"><img src="cart.png" width="30" height="30" ></a></li>
+					<li><a href="signInOrSignUp.php"><img src="profile_icon.png" width="30" height="30"></a></li>
+				</ul>
+			</div>
+        </nav>
+	</div>	
+
 
 	<?php
 
@@ -56,7 +87,7 @@
 	if(isset($_POST["phone"])){
 		$_SESSION['db_user']->setPhone($_POST["phone"]);
 	}
-	if (isset($_POST["dateOfBirth"])) {
+	if ($_POST["dateOfBirth"]) {
 		$_SESSION['db_user']->setDateOfBirth($_POST["dateOfBirth"]);	
 	}
 
@@ -65,10 +96,9 @@
 	<form action="" method="post">
 
 		<div class="form-group">
-			<label for="email" style="margin-left: 450px;">Email</label>
-			<input type="email" class="form-control is-valid" name="email" aria-describedby="emailHelp" placeholder=" <?php echo $_SESSION['db_user']->getEmail() ?>" value="<?php echo $_SESSION['db_user']->getEmail()?>" style="width: 35%; margin-left: 450px; ">
+			<label for="email" style="margin-left: 450px;">E Mail</label>
+			<input type="email" class="form-control is-valid" name="email" aria-describedby="emailHelp" placeholder="<?php echo $_SESSION['db_user']->getEmail()?>" value="<?php echo $_SESSION['db_user']->getEmail()?>"style="width: 35%; margin-left: 450px; ">
 		</div>
-
 		<div class="form-group">
 			<label for="name" style="margin-left: 450px;">Name</label>
 			<input type="text" class="form-control is-valid" name="name" aria-describedby="nameHelp" placeholder="<?php echo $_SESSION['db_user']->getName()?>" value="<?php echo $_SESSION['db_user']->getName()?>"style="width: 35%; margin-left: 450px; ">
@@ -90,7 +120,6 @@
 			<input type="text" class="form-control is-valid" name="addr1" aria-describedby="addr1Help" placeholder="<?php echo $_SESSION['db_user']->getAddr1()?>" value="<?php echo $_SESSION['db_user']->getAddr1()?>" style="width: 35%; margin-left: 450px; ">
 		</div>
 		<div class="form-group">
-
 			<label for="addr2" style="margin-left: 450px;">Address 2</label>
 			<input type="text" class="form-control is-valid" name="addr2" aria-describedby="addr2Help" placeholder="<?php echo $_SESSION['db_user']->getAddr2()?>" value="<?php echo $_SESSION['db_user']->getAddr2()?>" style="width: 35%; margin-left: 450px; ">
 		</div>

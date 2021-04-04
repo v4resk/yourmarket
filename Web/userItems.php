@@ -1,5 +1,11 @@
 <?php ini_set('display_errors', 'on');?>
 <?php require '../App/init.php'; ?>
+<?php 
+	$whereClause = "seller_id=" ."\"". $_SESSION['db_user']->getEmail()."\"";
+	$itemManager = new db_item_manage($db);
+	$tabItem = $itemManager->getItemTabFromWhere($whereClause);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,32 +55,44 @@
         </nav>
 	</div>	
 
-	<div class="col tex-center">
-	
-	<br>
-	<br>
-	<h1 style="text-align: center;">Your Personal Information</h1>
-	<br>
-	<br>
-	<p style="text-align: center;"><?php echo "E-Mail : " . $_SESSION['db_user']->getEmail() . "<br>";?></p>
-	<p style="text-align: center;"><?php echo "Name : " . $_SESSION['db_user']->getName() . "<br>";?></p>	
-	<p style="text-align: center;"><?php echo "First Name : " . $_SESSION['db_user']->getFirstName() . "<br>";?></p>	
-	<p style="text-align: center;"><?php echo "Password : " . $_SESSION['db_user']->getPasswd() . "<br>";	?></p>
-	<p style="text-align: center;"><?php echo "Favorite Background : " . $_SESSION['db_user']->getFavBackgroundNo() . "<br>";	?></p>
-	<p style="text-align: center;"><?php echo "Adress 1 : " . $_SESSION['db_user']->getAddr1() . "<br>";?></p>	
-	<p style="text-align: center;"><?php echo "Adress 2 : " . $_SESSION['db_user']->getAddr2() . "<br>";?></p>	
-	<p style="text-align: center;"><?php echo "City : " . $_SESSION['db_user']->getCity() . "<br>";?>	</p>
-	<p style="text-align: center;"><?php echo "Zip : " . $_SESSION['db_user']->getZip() . "<br>";?>	</p>
-	<p style="text-align: center;"><?php echo "Country : " . $_SESSION['db_user']->getCountry() . "<br>";	?></p>
-	<p style="text-align: center;"><?php echo "Phone number : " . $_SESSION['db_user']->getPhone() . "<br>";?></p>
-	<p style="text-align: center;"><?php echo "Date Of Birth : " . $_SESSION['db_user']->getDateOfBirth() . "<br>";?></p>	
-	
-	
+<!--NAV-->
+
+	<div class="navigation">
+		<br>
+		<br>
+		<h1 style="text-align: center;">Your Items</h1>
+		<br>
+		<br>
+		
+
+		<div class="card_gr">
+				<?php 
+						for($i=0;$i<sizeof($tabItem);$i++){		
+					 ?>
+
+					<div class="card" style="width: 18rem; border: 1px solid black; box-shadow: 1px; margin-bottom: 10px; margin-left: 10px;">
+				  		<img src="uploads/<?php echo $tabItem[$i]->getPic();?>" class="card-img-top" alt="<?php echo $tabItem[$i]->getPic();?>" width="178" height="200">
+				  		<div class="card-body">
+					    	<h5 class="card-title"><STRONG><?php echo $tabItem[$i]->getName(); ?></STRONG></h5>
+					    	<p class="card-text"><?php echo $tabItem[$i]->getInfo(); ?></p>
+					  	</div>
+				  		<ul class="list-group list-group-flush">
+					    <li class="list-group-item">Sell method: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
+					    <li class="list-group-item">Category: <?php echo $tabItem[$i]->getCategory(); ?></li>
+					    <li class="list-group-item">Price: <?php echo $tabItem[$i]->getPrice(); ?></li>
+				  		</ul>
+					  	<div class="card-body">
+					  		<form method="post" action="">
+					  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
+					    	<p><center><button type="submit" class="btn btn-danger" name="deleteItemsUser">Delete</button></center></p>
+					    	</form>
+					  </div>
+					
+					</div>
+				<?php }
+					?>
+		</div>
 	</div>
-	<form action="index.php" method="POST">
-		<p style="text-align: center;"><input style="text-align: center;" type="submit" name="killSession" value="Log out"></p>
-	</form>
-	
 
 </body>
 </html>  

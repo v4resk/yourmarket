@@ -16,7 +16,7 @@
 </script>
 <body>
 	<div class="headr">
-		<a href="homePage.html"><img src="logo.png" height="150" width="200"></a>
+		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 <div class="row" id="">
 		<nav class="navbar navbar-default" role="navigation">

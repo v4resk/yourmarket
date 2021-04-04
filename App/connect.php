@@ -56,6 +56,14 @@ if(isset($_POST["deleteSubmit"])){
 
 }
 
+if(isset($_POST["deleteItemsUser"])){
+
+	$itemToDelete = new db_item($db,$_POST["id_item"]);
+	$itemManager = new db_item_manage($db);
+	$itemManager->db_deleteItem($itemToDelete);
+
+}
+
 $_POST[] = array();
 
 ?>
