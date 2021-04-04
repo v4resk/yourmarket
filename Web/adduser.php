@@ -49,28 +49,28 @@
  <form action="" method="post">
  	<h1 style="text-align: center;">Add a new user</h1>
 	<div class="form-group">
-		<label for="user_name"style="margin-left: 450px;">Enter your name</label>
+		<label for="user_name"style="margin-left: 450px;">Enter user's name</label>
 		<input type="text" class="form-control is-valid"  name="user_name" aria-describedby="nameHelp" placeholder="Name" required style="width: 35%; margin-left: 450px;" >
 	</div>
 	<div class="form-group">
-				<label for="user_fName"style="margin-left: 450px;">Enter your first name</label>
+				<label for="user_fName"style="margin-left: 450px;">Enter user's first name</label>
 				<input type="text" class="form-control is-valid"  name="user_fName" aria-describedby="firstNamelHelp" placeholder="Enter your first name" required style="width: 35%; margin-left: 450px;" >
 			</div>
 	<div class="form-group">
-				<label for="user_date_of_b"style="margin-left: 450px;">Enter your date of birth</label>
+				<label for="user_date_of_b"style="margin-left: 450px;">Enter user's date of birth</label>
 				<input type="date" class="form-control is-valid"  name="user_date_of_b" max = "2003-04-06"aria-describedby="date_naissancelHelp" placeholder="Enter your date of birth" required style="width: 35%; margin-left: 450px;" >
 			</div>
 	<div class="form-group">
-		<label for="user_email"style="margin-left: 450px;">Enter your e-mail</label>
+		<label for="user_email"style="margin-left: 450px;">Enter user's e-mail</label>
 		<input type="email" class="form-control is-valid"  name="user_email" aria-describedby="emailHelp" placeholder="name.firstname@mail.com" required style="width: 35%; margin-left: 450px;" >
 	</div>
 
 	<div class="form-group">
-		<label for="user_Passwd"style="margin-left: 450px;">Enter your password</label>
+		<label for="user_Passwd"style="margin-left: 450px;">Enter user's password</label>
 		<input type="password" class="form-control is-valid"  name="user_Passwd" aria-describedby="mdplHelp" placeholder="Password" required style="width: 35%; margin-left: 450px;" >
 	</div>
 	<div class="form-group">
-				<label for="user_WhoAmI" style="margin-left: 450px;">Who Am I </label>
+				<label for="user_WhoAmI" style="margin-left: 450px;">Status</label>
 				<input list="dataCategory" name="user_WhoAmI" aria-describedby="typeUserHelp" class="form-control is-valid" required style="margin-left: 450px; width: 35%;">
 				<datalist id="dataCategory">
 					<option value="Admin">
@@ -80,27 +80,27 @@
 	
 
 	<div class="form-group">
-		<label for="user_addr1"style="margin-left: 450px;">Enter your adress</label>
+		<label for="user_addr1"style="margin-left: 450px;">Enter user's adress</label>
 		<input type="text" class="form-control is-valid"  name="user_addr1" aria-describedby="addr1lHelp" placeholder="Addres 1" required style="width: 35%; margin-left: 450px;" >
 	</div>
 	<div class="form-group">
-		<label for="user_addr2"style="margin-left: 450px;">Enter your adress</label>
+		<label for="user_addr2"style="margin-left: 450px;">Enter user's adress</label>
 		<input type="text" class="form-control is-valid"  name="user_addr2" aria-describedby="addr2lHelp" placeholder="Addres 2" style="width: 35%; margin-left: 450px;" >
 	</div>
 <div class="form-group">
-		<label for="user_city"style="margin-left: 450px;">Enter your city</label>
+		<label for="user_city"style="margin-left: 450px;">Enter user's city</label>
 		<input type="text" class="form-control is-valid"  name="user_city" aria-describedby="citylHelp" placeholder="City" required style="width: 35%; margin-left: 450px;" >
 	</div>
 	<div class="form-group">
-		<label for="user_zip"style="margin-left: 450px;">Enter your Zip Code</label>
+		<label for="user_zip"style="margin-left: 450px;">Enter user's Zip Code</label>
 		<input type="text" class="form-control is-valid"  name="user_zip" aria-describedby="postal_codelHelp" placeholder="Postal Code" required style="width: 35%; margin-left: 450px;" >
 	</div>
 	<div class="form-group">
-		<label for="user_country"style="margin-left: 450px;">Enter your country</label>
+		<label for="user_country"style="margin-left: 450px;">Enter user's country</label>
 		<input type="text" class="form-control is-valid"  name="user_country" aria-describedby="countrylHelp" placeholder="Country" required style="width: 35%; margin-left: 450px;" >
 	</div>
 	<div class="form-group">
-		<label for="user_phone"style="margin-left: 450px;">Enter your phone number</label>
+		<label for="user_phone"style="margin-left: 450px;">Enter user's phone number</label>
 		<input type="text" class="form-control is-valid"  name="user_phone" aria-describedby="phonelHelp" placeholder="Phone number" required style="width: 35%; margin-left: 450px;" >
 	</div>
 	<button type="submit" class="btn" style="margin-left: 450px;" name="subSignUp">Add this user</button><br><br>

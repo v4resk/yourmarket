@@ -73,8 +73,8 @@
 					<div class="card" style="width: 18rem; border: 1px solid black; box-shadow: 1px; margin-bottom: 10px; margin-left: 10px;">
 				  		<img src="uploads/<?php echo $tabItem[$i]->getPic();?>" class="card-img-top" alt="<?php echo $tabItem[$i]->getPic();?>" width="178" height="200">
 				  		<div class="card-body">
-					    	<h5 class="card-title"><STRONG><?php echo $tabItem[$i]->getName(); ?></STRONG></h5>
-					    	<p class="card-text"><?php echo $tabItem[$i]->getInfo(); ?></p>
+					    	<h5 class="card-title"><center><STRONG><?php echo $tabItem[$i]->getName(); ?></STRONG></center></h5>
+					    	<p class="card-text"><center><?php echo $tabItem[$i]->getInfo(); ?></center></p>
 					  	</div>
 				  		<ul class="list-group list-group-flush">
 					    <li class="list-group-item">Sell method: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
@@ -87,11 +87,14 @@
 					    	<p><center><button type="submit" class="btn btn-danger" name="deleteItemsUser">Delete</button></center></p>
 					    	</form>
 					  </div>
-					
+
 					</div>
 				<?php }
 					?>
 		</div>
+						<p><center>BIN : Buy It Now</center></p>
+					<p><center>BID : Auctions</center></p>
+					<p><center>BO : Best Offer</center></p>
 	</div>
 
 <!--FOOTER-->
