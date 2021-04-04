@@ -10,10 +10,12 @@ class db_item_manage{
 	public function db_deleteItem($item){
 		if(isset($this->db)){
 			$id_item_int = (int)$item->getIdItem(); 
-			$sqlQuery="DELETE From User WHERE id_item = :item_id";
+			$sqlQuery="DELETE From Item WHERE id_item = :item_id";
 			$statment = $this->db->prepare($sqlQuery);
 			$statment->bindParam(':item_id',$id_item_int,PDO::PARAM_INT);
-			$statment->execute();
+			if(!$statment->execute()){
+				echo print_r($statment->errorInfo());
+			}
 		}
 	}
 

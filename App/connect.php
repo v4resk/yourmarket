@@ -153,17 +153,16 @@ if(isset($_POST["deleteSubmit"])){
 
 }
 
-
 if(isset($_POST["updateSubmit"])){
 	$_SESSION["admin_user_to_update"] = new db_user($db,$_POST["update_user"]);
 }
 
-if(isset($_POST["db_user"])){
-	if($_POST["db_user"]->getWhoAmI()=="Admin"){
-		$_SESSION["admin"] = true;
-	}else{
-		$_SESSION["admin"] = false;
-	}
+
+if(isset($_POST["deleteItemsUser"])){
+
+	$itemToDelete = new db_item($db,$_POST["id_item"]);
+	$itemManager = new db_item_manage($db);
+	$itemManager->db_deleteItem($itemToDelete);
 }
 
 $_POST[] = array();
