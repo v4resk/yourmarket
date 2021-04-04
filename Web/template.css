@@ -53,5 +53,27 @@ color: #b2b2b2;
 }
 
 
+.sellContent{
+	display: flex;
+	flex-direction: row;
+	margin-left: 20px;
+}
+
+.sellChild{
+	margin-left: 20px; 
+}
+
+cite {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.buyItem{
+	display: flex;
+	justify-content: row;
+	width: 500px;
+	height: 500px;
+}
+
 
 

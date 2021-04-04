@@ -75,7 +75,6 @@ public function db_addUser(){
 			$user_country= (String)$_POST['user_country'];
 			$user_phone = (String)$_POST['user_phone'];
 			$user_WhoAmI = isset($_POST["user_WhoAmI"]) ? $_POST["user_WhoAmI"] : "custo";
-;
 
 			$sqlQuery = "INSERT INTO User (name,firstName,date_naissance,email,mdp,whoAmI,id_billInfo,addr1,addr2,city,postal_code,country,phone) VALUES (:name,:firstName,:date_naissance,:email,:mdp,:whoAmI,NULL,:addr1,:addr2,:city,:postal_code,:country,:phone)";
 
