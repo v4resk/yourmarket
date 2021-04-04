@@ -32,6 +32,10 @@
 					</li>
 					<li>
 						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Items</a>
+						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
+						<a class="dropdown-item" href="adduser.php" style="color:grey; ">Delet items</a><br>
+						<a class="dropdown-item" href="adduser.php" style="color:grey; ">Update items</a><br>
+						</div>
 					
 					</li>
 					<li><a href="order.php">Order</a></li>

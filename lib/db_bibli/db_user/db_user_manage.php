@@ -11,10 +11,24 @@ class db_user_manage{
 	public function db_deleteUser($user){
 		if(isset($this->db)){
 			$user_email_string = (String)$user->getEmail(); 
+
+
+			//BEFORE WE NEED TO DELET ALL Items list by the user
+			$sqlQuery = "DELETE FROM Item WHERE seller_id = :user_email";
+			$statment = $this->db->prepare($sqlQuery);
+			$statment->bindParam(':user_email',$user_email_string,PDO::PARAM_STR);
+			if(!$statment->execute()) {
+			    print_r($statment->errorInfo());
+				
+				}
+
 			$sqlQuery="DELETE From User WHERE email = :user_email";
 			$statment = $this->db->prepare($sqlQuery);
 			$statment->bindParam(':user_email',$user_email_string,PDO::PARAM_STR);
-			$statment->execute();
+			if(!$statment->execute()) {
+			    print_r($statment->errorInfo());
+				
+				}
 		}
 	}
 	public function db_updateUser($user){

@@ -145,8 +145,7 @@ if(isset($_POST['killSession'])){
 
 
 if(isset($_POST["deleteSubmit"])){
-
-
+	
 	$userToDelete = new db_user($db,$_POST["delete"]);
 	$userManager = new db_user_manage($db);
 	$userManager->db_deleteUser($userToDelete);
