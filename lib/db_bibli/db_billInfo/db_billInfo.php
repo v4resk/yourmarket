@@ -28,6 +28,9 @@ class db_billInfo{
 		if(isset($data_bill['cvc'])){
 			$this->cvc = $data_bill['cvc'];
 		}
+		if(isset($data_bill['name_on_card'])){
+			$this->name_on_card = $data_bill['name_on_card'];
+		}
 	}
 
 	public function __construct($db,$id){
@@ -58,6 +61,32 @@ class db_billInfo{
 	public function getCVC(){
 		return $this->cvc;
 	}
+	public function getNameOnCard(){
+		return $this->name_on_card;
+	}
+	//----------SET--------------------
+	public function setIdBill($data){
+		$this->id_billInfo = $data;
+	}
+	public function setEmail($data){
+		$this->email = $data;
+	}
+	public function setTypeOfPayment($data){
+		$this->type_of_payment = $data;
+	}
+	public function setCardNumber($data){
+		$this->card_number = $data;
+	}
+	public function setExpirationDate($data){
+		$this->expiration_date = $data;
+	}
+	public function setCVC($data){
+		$this->cvc = $data;
+	}
+	public function setNameOnCard($data){
+		$this->name_on_card = $data;
+	}
+
 }
 
 

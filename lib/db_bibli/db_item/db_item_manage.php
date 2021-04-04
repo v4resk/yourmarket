@@ -10,6 +10,16 @@ class db_item_manage{
 	public function db_deleteItem($item){
 		if(isset($this->db)){
 			$id_item_int = (int)$item->getIdItem(); 
+
+			//Before we need to delet _order who are related to the Item; (Foreign key contraint)
+			$sqlQuery = "DELETE FROM _order WHERE id_item = :item_id";
+			$statment = $this->db->prepare($sqlQuery);
+			$statment->bindParam(':item_id',$id_item_int,PDO::PARAM_STR);
+			if(!$statment->execute()) {
+			   		print_r($statment->errorInfo());
+				
+			 }
+			
 			$sqlQuery="DELETE From Item WHERE id_item = :item_id";
 			$statment = $this->db->prepare($sqlQuery);
 			$statment->bindParam(':item_id',$id_item_int,PDO::PARAM_INT);

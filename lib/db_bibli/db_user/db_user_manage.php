@@ -13,6 +13,25 @@ class db_user_manage{
 			$user_email_string = (String)$user->getEmail(); 
 
 
+			//BEFORE WE NEED TO DELET ALL BillInfo related to user
+			$sqlQuery = "DELETE FROM Bill_info WHERE email = :user_email";
+			$statment = $this->db->prepare($sqlQuery);
+			$statment->bindParam(':user_email',$user_email_string,PDO::PARAM_STR);
+			if(!$statment->execute()) {
+			    print_r($statment->errorInfo());
+				
+				}
+
+
+			//BEFORE WE NEED TO DELET ALL _order related to user
+			$sqlQuery = "DELETE FROM _order WHERE email = :user_email";
+			$statment = $this->db->prepare($sqlQuery);
+			$statment->bindParam(':user_email',$user_email_string,PDO::PARAM_STR);
+			if(!$statment->execute()) {
+			    print_r($statment->errorInfo());
+				
+				}
+
 			//BEFORE WE NEED TO DELET ALL Items list by the user
 			$sqlQuery = "DELETE FROM Item WHERE seller_id = :user_email";
 			$statment = $this->db->prepare($sqlQuery);
