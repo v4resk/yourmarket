@@ -53,7 +53,10 @@ class db_user_manage{
 			$statment->bindParam(':phone',$user_phone,PDO::PARAM_STR);
 			$statment->bindParam(':email',$user_email,PDO::PARAM_STR);
 			
-			$statment->execute();
+			if (!$statment->execute()) {
+			    print_r($statment->errorInfo());
+				
+				}
 		}
 	}
 

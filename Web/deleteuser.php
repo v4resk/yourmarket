@@ -1,5 +1,6 @@
 <?php require '../App/init.php'; ?>
 <?php ini_set('display_errors', 'on');?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
 </script>
 <body>
 	<div class="headr">
-		<a href="homePage.html"><img src="logo.png" height="150" width="200"></a>
+		<a href="admin.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 <div class="row" id="">
 		<nav class="navbar navbar-default" role="navigation">
@@ -90,7 +91,7 @@ $statement=$db->query($sqlQuery);?>
 			<div class="col-mb-7">@ Copyright YourMarket 2021</div>
 
 			<ul class="footer-nav">
-				<li> <a href = "homePage.html">Home</a></li>
+				<li> <a href = "admin.php">Home</a></li>
 				<li> <a href="mailto:support@yourmarket.com">Contact</li>
 				<p> support@yourmarket.com</p>
 				<p>+44 7800 987654</p>

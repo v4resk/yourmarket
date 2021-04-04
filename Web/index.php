@@ -1,5 +1,13 @@
 <?php ini_set('display_errors', 'on');?>
 <?php require '../App/init.php'; ?>
+<?php  if(isset($_SESSION['db_user'])) {
+	if($_SESSION['db_user']->getWhoAmI()=="Admin"){
+		echo "<script> location.href='admin.php'; </script>";
+       	exit;
+    }
+
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

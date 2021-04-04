@@ -11,7 +11,7 @@ class db_item_manage{
 		if(isset($this->db)){
 			$id_item_int = (int)$item->getIdItem(); 
 			$sqlQuery="DELETE From User WHERE id_item = :item_id";
-			$statment = $this->bd->prepare($sqlQuery);
+			$statment = $this->db->prepare($sqlQuery);
 			$statment->bindParam(':item_id',$id_item_int,PDO::PARAM_INT);
 			$statment->execute();
 		}
@@ -51,7 +51,10 @@ class db_item_manage{
 				$statment->bindParam(':customer_id',$customer_id,PDO::PARAM_STR);
 				$statment->bindParam(':id_item',$id_item,PDO::PARAM_INT);
 				$statment->bindParam(':pic',$pic,PDO::PARAM_STR);
-				$statment->execute();
+				if (!$statment->execute()) {
+			    print_r($statment->errorInfo());
+				
+				}
 		}
 	}
 

@@ -70,7 +70,7 @@
 	<div class="navigation" >
 
 
-		<ul class="nav nav-tabs" style="width: 80%; ">
+		<ul class="nav nav-tabs tabs-left" style="width: 80%; ">
 			<li class="active"><a data-toggle="tab" href="#infoItem">Info</a></li>
 		 	<li><a data-toggle="tab" href="<?php if($item->getSellBO()){echo $BuyBestOffer;}else{echo $null;} ?>">Buy Best Offer</a></li>
 		 	<li><a data-toggle="tab" href="<?php if($item->getSellBID()){echo $BuyAuction;}else{echo $null;} ?>">Buy Auction</a></li>

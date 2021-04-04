@@ -56,7 +56,8 @@
 <!--NAV-->
 	<div class="navigation" >
 		
-
+		
+			
 		<div class="card_gr">
 			<?php 
 					for($i=0;$i<sizeof($tabItem);$i++){		

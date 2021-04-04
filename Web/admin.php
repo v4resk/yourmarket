@@ -1,3 +1,8 @@
+
+<?php require '../App/init.php'; ?>
+<?php  require '../App/check_alert.php' ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +16,7 @@
 </head>
 <body>
 	<div class="headr">
-		<a href="homePage.html"><img src="logo.png" height="150" width="200"></a>
+		<a href="admin.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 <div class="row" id="">
 		<nav class="navbar navbar-default" role="navigation">
@@ -39,6 +44,16 @@
 			</div>
         </nav>
 	</div>
+	<div class="col tex-center">
+	
+	<br>
+	<br>
+	<h1 style="text-align: center;">Welcom to the Admin Panel !</h1>
+	<br>
+	<p style="text-align: center;"><?php echo "E-Mail : " . $_SESSION['db_user']->getEmail() . "<br>";?></p>
+	<p style="text-align: center;"><?php echo "Name : " . $_SESSION['db_user']->getName() . "<br>";?></p>	
+	<p style="text-align: center;"><?php echo "First Name : " . $_SESSION['db_user']->getFirstName() . "<br>";?></p>	
+	</div>
 
 <!--FOOTER-->
 <footer class="site-footer">
@@ -62,7 +77,7 @@
 			<div class="col-mb-7">@ Copyright YourMarket 2021</div>
 
 			<ul class="footer-nav">
-				<li> <a href = "homePage.html">Home</a></li>
+				<li> <a href = "index.php">Home</a></li>
 				<li> <a href="mailto:support@yourmarket.com">Contact</li>
 				<p> support@yourmarket.com</p>
 				<p>+44 7800 987654</p>

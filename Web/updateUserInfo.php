@@ -1,5 +1,6 @@
 
 <?php require '../App/init.php'; ?>
+<?php  require '../App/check_alert.php' ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,6 +56,9 @@
 	}
 	if(isset($_POST["phone"])){
 		$_SESSION['db_user']->setPhone($_POST["phone"]);
+	}
+	if(isset($_POST["WhoAmI"])){
+		$_SESSION['db_user']->setWhoAmI($_POST["WhoAmI"]);
 	}
 	
 
@@ -114,7 +118,8 @@
 		<p style="text-align: center;">If you would like to change, change it in the calendar below</p><br>
 			<input type="date" class="form-control is-valid" name="dateOfBirth" aria-describedby="dateOfBirthHelp" placeholder="<?php echo $_SESSION['db_user']->getDateOfBirth()?>" max="2003-04-01" style="width: 35%; margin-left: 450px; " >
 		</div>
-		<button type="submit" class="btn" style="margin-left: 450px;" name="subSignUp">Submit</button><br><br>
+		<input type="hidden" name="forDbUser">
+		<button type="submit" class="btn" style="margin-left: 450px;" name="subUpdate">Submit</button><br><br>
 	</form>
 		
 
