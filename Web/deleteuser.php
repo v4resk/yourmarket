@@ -1,4 +1,5 @@
 <?php require '../App/init.php'; ?>
+<?php require '../App/check_alert.php' ?>
 <?php ini_set('display_errors', 'on');?>
 
 <!DOCTYPE html>
@@ -68,6 +69,7 @@ $statement=$db->query($sqlQuery);?>
 	?>
 	</datalist>
 	<input type="submit" name="deleteSubmit" value="Delete">
+	<div class="alert alert-danger" role="alert" style="width: 32%;margin-top:5px;  margin-left: 37%;">Delet an User 'll automatically delet all related Orders/Items !</div>
 </form>
 <!--FOOTER-->
 <footer class="site-footer">

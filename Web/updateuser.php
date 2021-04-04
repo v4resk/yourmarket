@@ -48,49 +48,7 @@
 	
 	<?php
 
-	if(isset($_POST["email"]))
-	{
-
-		$_SESSION['admin_user_to_update']->setEmail($_POST["email"]);
-	}
-	if (isset($_POST["name"])) {
-		$_SESSION['admin_user_to_update']->setName($_POST["name"]);		
-	}
-	if(isset($_POST["firstName"])){
-		$_SESSION['admin_user_to_update']->setFirstName($_POST["firstName"]);	
-	}
-	if(isset($_POST["dateOfBirth"])){
-		$_SESSION['admin_user_to_update']->setDateOfBirth($_POST["dateOfBirth"]);		
-	}
-	if(isset($_POST["password"])){
-		$_SESSION['admin_user_to_update']->setPasswd($_POST["password"]);	
-	}
-	if(isset($_POST["favBackGround"])){
-		$_SESSION['admin_user_to_update']->setFavBackgroundNo($_POST["favBackGround"]);		
-	}
-	if(isset($_POST["addr1"])){
-		$_SESSION['admin_user_to_update']->setAddr1($_POST["addr1"]);		
-	}
-	if (isset($_POST["addr2"])) {
-		$_SESSION['admin_user_to_update']->setAddr2($_POST["addr2"]);		
-	}
-	if(isset($_POST["city"])){
-		$_SESSION['admin_user_to_update']->setCity($_POST["city"]);		
-	}
-	if(isset($_POST["zip"])){
-		$_SESSION['admin_user_to_update']->setZip($_POST["zip"]);		
-	}
-	if(isset($_POST["country"])){
-		$_SESSION['admin_user_to_update']->setCountry($_POST["country"]);
-	}
-	if(isset($_POST["phone"])){
-		$_SESSION['admin_user_to_update']->setPhone($_POST["phone"]);
-	}
-	if(isset($_POST["WhoAmI"])){
-		$_SESSION['admin_user_to_update']->setWhoAmI($_POST["WhoAmI"]);
-	}
 	
-
 	?>
 
 
