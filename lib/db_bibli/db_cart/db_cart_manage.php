@@ -1,5 +1,7 @@
 <?php
 
+
+class db_cart_manage{
 private $db;
 	public function __construct($db){
 		$this->db = $db;
@@ -35,5 +37,6 @@ public function db_addCard(){
 			}
 		}
 	}
+}
 }
 ?>
