@@ -144,13 +144,22 @@ if(isset($_POST['killSession'])){
 }
 
 
-if(isset($_POST["deleteSubmit"])){
+if(isset($_POST["deleteSubmitUser"])){
 	
 	$userToDelete = new db_user($db,$_POST["delete"]);
 	$userManager = new db_user_manage($db);
 	$userManager->db_deleteUser($userToDelete);
 
 }
+
+if(isset($_POST["deleteSubmitItem"])){
+
+	$itemToDelete = new db_item($db,$_POST["deleteItem"]);
+	$itemManager = new db_item_manage($db);
+	$itemManager->db_deleteItem($itemToDelete);
+
+}
+
 
 if(isset($_POST["updateSubmit"])){
 	$_SESSION["admin_user_to_update"] = new db_user($db,$_POST["update_user"]);

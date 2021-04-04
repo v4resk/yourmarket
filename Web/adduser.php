@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="headr">
-		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
+		<a href="admin.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 <div class="row" id="">
 		<nav class="navbar navbar-default" role="navigation">
@@ -30,6 +30,10 @@
 					</li>
 					<li>
 						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Items</a>
+						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
+							<a class="dropdown-item" href="deleteItemsAdmin.php" style="color:grey; ">Delete items</a><br>
+							<a class="dropdown-item" href="updateItemsAdmin.php" style="color:grey; ">Update items</a><br>
+						</div>
 					
 					</li>
 					<li><a href="order.php">Order</a></li>

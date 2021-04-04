@@ -34,6 +34,10 @@
 					</li>
 					<li>
 						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Items</a>
+						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
+							<a class="dropdown-item" href="deleteItemsAdmin.php" style="color:grey; ">Delete items</a><br>
+							<a class="dropdown-item" href="updateItemsAdmin.php" style="color:grey; ">Update items</a><br>
+						</div>
 					
 					</li>
 					<li><a href="order.php">Order</a></li>
@@ -51,8 +55,6 @@
 
 <?php 
 
-
-
 $sqlQuery="SELECT * FROM User";
 $statement=$db->query($sqlQuery);?>
 <form action="" method="post">
@@ -68,9 +70,10 @@ $statement=$db->query($sqlQuery);?>
 
 	?>
 	</datalist>
-	<input type="submit" name="deleteSubmit" value="Delete">
-	<div class="alert alert-danger" role="alert" style="width: 32%;margin-top:5px;  margin-left: 37%;">Delet an User 'll automatically delet all related Orders/Items !</div>
+	<input type="submit" name="deleteSubmitUser" value="Delete">
+	<div class="alert alert-danger" role="alert" style="width: 32%;margin-top:5px;  margin-left: 37%;">Delete an User 'll automatically delete all related Orders/Items !</div>
 </form>
+
 <!--FOOTER-->
 <footer class="site-footer">
 		<div class="container">
