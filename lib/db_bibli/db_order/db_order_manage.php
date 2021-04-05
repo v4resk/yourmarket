@@ -44,30 +44,43 @@ class db_order_manage{
 
 	public function db_addOrder(){
 		if(isset($this->db)){
-			if(isset($_POST['user_date_m']) && isset($_POST['user_id_item']) && isset($_POST['user_status']) && (isset($_POST['user_price']) || isset($_POST['user_max_price']))&& isset($_POST['user_email'])){
-
-				
-				$email= $_POST['']; // A REMPLIR ! 
-				$date_m= $_POST[''];
-				$id_item= $_POST[''];
-				$status= $_POST[''];
-				$price= $_POST[''];
-				$max_price= $_POST[''];
+			
+				$email= $_SESSION["bid_email"]; // A REMPLIR ! 
+				$date_m= $_SESSION["bid_date_m"];
+				$id_item= $_SESSION["bid_id_item"];
+				$status= $_SESSION["bid_status"];
+				$price = isset($_SESSION["bid_price"]) ? $_SESSION["bid_price"] : null;
+				$max_price= isset($_SESSION["bid_max_price"]) ? $_SESSION["bid_max_price"] : null;
+				$null = null;
 
 				$sqlQuery = "INSERT INTO _order(id_order,email,date_m,id_item,status,price,max_price) VALUES (:id_order,:email,:date_m,:id_item,:status,:price,:max_price)";
-				$statment = $this->bd->prepare($sqlQuery);
-				$statment->bindParam(':id_order',null,PDO::PARAM_INT);
+				$statment = $this->db->prepare($sqlQuery);
+				$statment->bindParam(':id_order',$null,PDO::PARAM_INT);
 				$statment->bindParam(':email',$email,PDO::PARAM_STR);
 				$statment->bindParam(':date_m',$date_m,PDO::PARAM_STR);
 				$statment->bindParam(':id_item',$id_item,PDO::PARAM_INT);
 				$statment->bindParam(':status',$status,PDO::PARAM_INT);
 				$statment->bindParam(':price',$price,PDO::PARAM_STR);
-				$statment->bindParam(':max_price',$max_price,PDO::STR);
+				$statment->bindParam(':max_price',$max_price,PDO::PARAM_STR);
 
 				$statment->execute();
-
-			}
 			
+		}
+	}
+
+
+		public function getOrderTabFromWhere($whereClause){
+		if(isset($this->db)){
+			$sqlQuery= "SELECT * FROM _order WHERE ".$whereClause;
+			$statment = $this->db->prepare($sqlQuery);
+			$statment->execute();
+			$itemTab = [];
+			$i = 0;
+			while ($resp = $statment->fetch()) {
+				$itemTab[$i] = new db_item($this->db,(int)$resp['id_order']);
+				$i++; 
+			}
+			return $itemTab;
 		}
 	}
 

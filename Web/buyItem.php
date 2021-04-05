@@ -103,7 +103,7 @@
 						<input type="number" class="form-control "  readonly name="actualPrice" aria-describedby="actualPriceHelp" placeholder="<?php echo currentBidPrice($db,$_POST["id_item"]) ?>" value="<?php echo currentBidPrice($db,$_POST["id_item"]) ?>" style="width: 35%; margin-left: 20px;" >
 					</div>
 					<div class="form-group">
-						<label for="bidPrice" style="margin-left: 20px;">Bid Price (£)</label>
+						<label for="bidPrice" style="margin-left: 20px;">Your bid Price (£)</label>
 						<input type="number" class="form-control " required name="bidPrice" aria-describedby="actualPriceHelp"  style="width: 35%; margin-left: 20px;" >
 					</div>
 		    	<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button></p>
