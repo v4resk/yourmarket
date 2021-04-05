@@ -56,7 +56,7 @@
 <!--NAV-->
 	<div class="navigation" >
 		<div class="card_gr">
-			<?php 
+				<?php 
 					for($i=0;$i<sizeof($tabItem);$i++){		
 				 ?>
 				<div class="card" style="width: 18rem; border: 1px solid black; box-shadow: 1px; margin-bottom: 10px; margin-left: 10px;">
@@ -66,16 +66,19 @@
 				    	<p class="card-text"><?php echo $tabItem[$i]->getInfo(); ?></p>
 				  	</div>
 			  		<ul class="list-group list-group-flush">
-				    <li class="list-group-item">Sell methode: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
+				    <li class="list-group-item">Sell method: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
 				    <li class="list-group-item">Category: <?php echo $tabItem[$i]->getCategory(); ?></li>
 				    <li class="list-group-item">Price: <?php echo $tabItem[$i]->getPrice(); ?></li>
 			  		</ul>
 				  	<div class="card-body">
-				  		<p style="text-align: center;"><button><img src="addToCart.png" height="40" weight="40"></button></p><br>
 				  		<form method="post" action="buyItem.php">
 				  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
-
 				    	<p><center><button type="submit" class="btn btn-success">Purchase</button></center></p>
+				    	</form>
+				    	<form method="post" action="">
+				    		<input type="hidden" name="id_item_cart" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
+				    		<input type="hidden" name="cart_id_customer" value="<?php echo $_SESSION["db_user"]->getEmail(); ?>">
+				    		<p style="text-align: center;"><button type="submit" name="addCartBtn"><img src="addToCart.png" height="40" weight="40"></button></p><br>
 				    	</form>
 				  </div>
 				

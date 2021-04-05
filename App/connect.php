@@ -272,7 +272,9 @@ if(isset($_POST["id_item_purchase"])){
 }
 if(isset($_POST["id_item_bid"])){
 	$_SESSION["item_to_bid"] = new db_item($db,$_POST['id_item_bid']);
-
+}
+if(isset($_POST["id_item_max_bid"])){
+	$_SESSION["item_to_bid_for_maxPrice"] = new db_item($db,$_POST["id_item_max_bid"]);
 }
 
 $_POST[] = array();

@@ -1,9 +1,9 @@
 <?php require '../App/init.php'; ?>
 <?php require '../App/check_alert.php' ?>
 <?php 
-	$whereClause = "customer_id = \"".$_SESSION['db_user']->getEmail() ."\" ";
-	$itemManager = new db_item_manage($db);
-	$tabItem = $itemManager->getItemTabFromWhere($whereClause);
+	$whereClause = "id_customer = \"".$_SESSION['db_user']->getEmail() ."\" ";
+	$itemManager = new db_cart_manage($db);
+	$tabItem = $itemManager->getCartTabFromWhere($whereClause);
 ?>
 
 <!DOCTYPE html>
@@ -71,8 +71,9 @@
 				    <li class="list-group-item">Price : <?php echo $tabItem[$i]->getPrice(); ?></li>
 			  		</ul>
 				  	<div class="card-body">
-				  		<form method="post" action="buyItem.php">
-				  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
+				  		<form method="post" action="">
+				  		<input type="hidden" name="id_item_remove_cart" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
+				  		<p><center><button type="submit" class="btn btn-warning" name="remove_cart">Delet from cart</button></center></p>
 				    	</form>
 				  </div>
 				

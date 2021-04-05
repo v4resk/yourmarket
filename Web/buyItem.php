@@ -108,8 +108,20 @@
 					</div>
 		    	<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button></p>
 		    	<input type="hidden" name="id_item_bid" value="<?php echo $_POST["id_item"];?>"></p>
+		    	</form>
 
-				</form>	
+		    	<form action="payment.php" method="post">
+					<div class="form-group">
+						<p style="margin-left: 20px; ">--------------------------------------------------------------------------------------------------------------</p>
+						<label for="bidPrice" style="margin-left: 20px;">Place a Max bid Price (£)</label>
+						<input type="number" class="form-control " name="maxBidPrice" aria-describedby="actualPriceHelp"  style="width: 35%; margin-left: 20px;" >
+					</div>
+		    	<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button></p>
+		    	<input type="hidden" name="id_item_max_bid" value="<?php echo $_POST["id_item"];?>"></p>
+		    	<input type="hidden" name="actualPrice" value="<?php echo currentBidPrice($db,$_POST["id_item"]) ?>">
+
+				</form>
+
 		  </div>
 		  <div id="BuyItNow" class="tab-pane fade">
 		      <div class="sellContent">

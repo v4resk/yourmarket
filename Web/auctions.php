@@ -73,8 +73,12 @@
 				  	<div class="card-body">
 				  		<form method="post" action="buyItem.php">
 				  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
-				  		<p style="text-align: center;"><button><img src="addToCart.png" height="40" weight="40"></button></p><br>
 				    	<p><center><button type="submit" class="btn btn-success">Purchase</button></center></p>
+				    	</form>
+				    	<form method="post" action="">
+				    		<input type="hidden" name="id_item_cart" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
+				    		<input type="hidden" name="cart_id_customer" value="<?php echo $_SESSION["db_user"]->getEmail(); ?>">
+				    		<p style="text-align: center;"><button type="submit" name="addCartBtn"><img src="addToCart.png" height="40" weight="40"></button></p><br>
 				    	</form>
 				  </div>
 				

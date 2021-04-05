@@ -40,7 +40,8 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
   if(isset($_SESSION["item_to_bid_for_maxPrice"])){
     $item = $_SESSION["item_to_bid_for_maxPrice"];
     $item_min_price = floatval($item->getPrice()); // min price set here
-    $user_max_order = 
+    $user_max_order = $_POST["maxBidPrice"];
+    $item_actual_bid_price = $_POST["actualPrice"];
     $itemManage = new db_item_manage($db);
 
     require '../App/max_bid_script.php';
