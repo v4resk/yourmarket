@@ -41,12 +41,12 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
 
 <body>
 
-<form id=paiement action="" method="post">
+<form id=paiement action="myAccount.php" method="post">
  
   <fieldset>
   	
     <legend>Banking Information </legend>
-    <p>No payment methode found, you have to register one</p>
+    <p>No payment method found, you have to register one</p>
    <div class="box">
         <fieldset>
         	
@@ -75,7 +75,7 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
       <span>
          <label for=expiration date>Expiration date</label>
         <select id="month"name="month">
-         <option selected="January">January</option>
+         <option selected="January">April</option>
          <option >February</option>
          <option>March</option>
          <option>April</option>
@@ -100,7 +100,6 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
         	<option>2026</option>
         	<option>2027</option>
         	<option>2028</option>
-
         </select>
       </span>
     </div>
@@ -109,11 +108,11 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
         <input id="securite" name="cvc" type="text" required >
       <p></p>
       
-        <label for="nom_porteur">Your firstname</label>
+        <label for="nom_porteur">Your Firstname</label>
         <input id="nom_porteur" name="name_on_card" type="text" placeholder="Your firstname" required>
       <p></p>
       <input type="hidden" name="email" value="<?php echo $_SESSION["db_user"]->getEmail(); ?>">
-      <input type="submit" name="subBillInfo" value="save">
+      <input type="submit" name="subBillInfo" value="Save">
 
   </fieldset>
 

@@ -37,7 +37,13 @@
 						</div>
 					</li>  
 					<li><a href="sell.php">Sell</a></li>
-					<li><a href="updateUserInfo.php">Update your Information</a></li>
+					<li>
+						<a class="nav-link dropdown-toggle" href="#" id="navBarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Update your Informations</a>
+						<div class="dropdown-menu" aria-labelledby="navBarDropdownMenuLink">
+							<a class="dropdown-item" href="updateUserInfo.php" style="color:grey; ">Update Personal Information</a><br>
+							<a class="dropdown-item" href="billingInfo.php" style="color: grey; ">Update Billing Information</a><br>
+						</div>
+					</li>
 					<li><a href="userItems.php">Manage Items</a></li>
 					<li><a href="purchaseHistory.php">Purchase History</a></li>
 					<li><a href="sellHistory.php">Sell History</a></li>
