@@ -1,14 +1,30 @@
 <?php ini_set('display_errors', 'on');?>
+<?php  require '../App/check_alert.php' ?>
 <?php require '../App/init.php'; ?>
 <?php 
 
-  
-if(isset($_SESSION["db_user"])){
-  if($_SESSION["db_user"]->getIdBillInfo() == null ){
+if(!isset($_SESSION["db_user"])){
+  echo "<script> location.href='index.php'; </script>";
+  $_SESSION['red_alert'] = create_alert_red("Need to be log in");
+  exit;
+}
+else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
+  if(isset($_SESSION["item_to_buy"])){
+    
+  $item = $_SESSION["item_to_buy"];
+  $itemManage = new db_item_manage($db);
+  $item->setCustomerId($_SESSION["db_user"]->getEmail());
+  $itemManage->db_updateItem($item);
 
+  unset($_SESSION['item_to_buy']);
+  echo "<script> location.href='index.php'; </script>";
+  $_SESSION['green_alert'] = create_alert_green("Succeffully purchased");
+}
+  exit;
+}else{
+   
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +41,7 @@ if(isset($_SESSION["db_user"])){
 
 <body>
 
-<form id=paiement>
+<form id=paiement action="" method="post">
  
   <fieldset>
   	
@@ -36,15 +52,15 @@ if(isset($_SESSION["db_user"])){
         	
           <legend>Your bank account details</legend>
           
-              <input id=visa name=type_de_carte type=radio>
+              <input id=visa name=type_of_payment type=radio value="visa">
               <label for=visa>VISA</label>
                <img src="Visa1.png" width="85" height="50"> 
             <p></p>
-              <input id=americanexpress name=type_de_carte type=radio>
+              <input id=americanexpress name=type_of_payment type=radio value="americanexpress">
               <label for=americanexpres>American Express</label>
               <img src="americanexpress.png" width="85" height="50"> 
            <p></p>
-              <input id=mastercard name=type_de_carte type=radio>
+              <input id=mastercard name=type_of_payment type=radio value="mastercard">
               <label for=mastercard>Mastercard</label>
               <img src="Mastercard.png" width="85" height="50"> 
            <p></p>
@@ -52,7 +68,7 @@ if(isset($_SESSION["db_user"])){
     
      
         <label for=numero_de_carte>number of card</label>
-        <input id=numero_de_carte name=numero_de_carte type=text required>
+        <input id=numero_de_carte name=card_number type=text required>
     
       <p></p>
         <div>
@@ -89,13 +105,15 @@ if(isset($_SESSION["db_user"])){
       </span>
     </div>
     <p></p>
-        <label for=securite>CVC</label>
-        <input id=securite name=securite type=text required >
+        <label for="securite">CVC</label>
+        <input id="securite" name="cvc" type="text" required >
       <p></p>
       
-        <label for=nom_porteur>Your firstname</label>
-        <input id=nom_porteur name=nom_porteur type=text placeholder="Your firstname" required>
+        <label for="nom_porteur">Your firstname</label>
+        <input id="nom_porteur" name="name_on_card" type="text" placeholder="Your firstname" required>
       <p></p>
+      <input type="hidden" name="email" value="<?php echo $_SESSION["db_user"]->getEmail(); ?>">
+      <input type="submit" name="subBillInfo" value="save">
 
   </fieldset>
 
@@ -108,11 +126,5 @@ if(isset($_SESSION["db_user"])){
 
 <?php
     }
-}else{
-
-  echo "<script> location.href='confirmBy.php'; </script>";
-  $_SESSION['green_alert'] = create_alert_green("Payment methodes found");
-
-}
 
 ?>

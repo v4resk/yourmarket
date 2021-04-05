@@ -123,8 +123,10 @@
 			    		<h5><cite>End:</cite> <?php echo $item->getToTime(); ?></h5><br><br>		
 			    	</div>
 			    </div>
-				<form action="payment.php">
-					<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button></p>
+				<form action="payment.php" method="post">
+					
+					<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button>
+					<input type="hidden" name="id_item_purchase" value="<?php echo $_POST["id_item"];?>"></p>
 				</form>
 		  </div>
 		</div>

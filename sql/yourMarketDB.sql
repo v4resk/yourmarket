@@ -26,7 +26,7 @@ CREATE TABLE `Bill_info` (
   `type_of_payment` VARCHAR(30),
   `card_number` VARCHAR(12),
   `name_on_card` VARCHAR(20),
-  `expiration_date` DATETIME,
+  `expiration_date` VARCHAR(40),
   `cvc` INT
 );
 

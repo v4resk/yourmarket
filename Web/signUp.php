@@ -1,4 +1,5 @@
 <?php ini_set('display_errors', 'on');?>
+<?php  require '../App/check_alert.php' ?>
 <?php require '../App/init.php'; ?>
 <!DOCTYPE html>
 <html>

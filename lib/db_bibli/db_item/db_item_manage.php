@@ -67,6 +67,7 @@ class db_item_manage{
 			    print_r($statment->errorInfo());
 				
 				}
+				
 		}
 	}
 

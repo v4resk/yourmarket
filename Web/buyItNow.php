@@ -1,7 +1,7 @@
 <?php require '../App/init.php'; ?>
 <?php require '../App/check_alert.php' ?>
 <?php 
-	$whereClause = "sellBIN = \"1\"";
+	$whereClause = "sellBIN = \"1\" AND customer_id IS NULL";
 	$itemManager = new db_item_manage($db);
 	$tabItem = $itemManager->getItemTabFromWhere($whereClause);
 ?>

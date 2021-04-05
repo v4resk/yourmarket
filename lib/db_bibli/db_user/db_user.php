@@ -2,7 +2,7 @@
 
 class db_user{
 
-	
+	private $db;
 	private $email;
 	private $name;
 	private $firstName;
@@ -142,8 +142,14 @@ class db_user{
 	public function setWhoAmI($whoAmI){
 		$this->whoAmI = (String)$whoAmI;
 	}
-	public function setIdBillInfo($id){
-		$this->idBillInfo = (int)$id;
+	public function setIdBillInfo($db){
+		$statment = $db->prepare("SELECT id_billInfo FROM Bill_info WHERE email = :email");
+		$statment->bindParam(':email',$this->email,PDO::PARAM_STR);
+		$statment->execute();
+
+		while ($res = $statment->fetch()){
+			$this->idBillInfo = (int)$res['id_billInfo'];
+		}
 	}
 	public function setFavBackgroundNo($favBack){
 		$this->favBackgroundNo = $favBack;

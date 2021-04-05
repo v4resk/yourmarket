@@ -164,6 +164,26 @@ if(isset($_POST["deleteItemsUser"])){
 	$itemManager->db_deleteItem($itemToDelete);
 }
 
+if(isset($_POST["subBillInfo"])){
+	$billManager = new db_billInfo_manage($db);
+	$billManager->db_addBill();
+
+	// SET the billInfo
+	$_SESSION["db_user"]->setIdBillInfo($db);
+
+	//Add bill info to the user table
+	$userManager = new db_user_manage($db);
+	$userManager->db_updateUser($_SESSION["db_user"]);
+	$_SESSION['green_alert'] = create_alert_green("Payment info succeffully posted");
+}
+
+if(isset($_POST["id_item_purchase"])){
+  //We set the email customer in Item 
+	echo "OUEE SA A CREE";
+  $_SESSION["item_to_buy"] = new db_item($db,$_POST['id_item_purchase']);
+ 
+}
+
 $_POST[] = array();
 
 ?>

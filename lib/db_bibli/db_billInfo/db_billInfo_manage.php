@@ -1,7 +1,7 @@
 <?php
 
 
-class db_billInfo_mabage{
+class db_billInfo_manage{
 	private $db;
 	public function __construct($db){
 		$this->db = $db;
@@ -52,18 +52,16 @@ class db_billInfo_mabage{
 
 	public function db_addBill(){
 		if(isset($this->db)){
-
-			if(isset($_POST['email']) && isset($_POST['type_of_payment']) && isset($_POST['card_number']) && isset($_POST['expiration_date']) && isset($_POST['cvc']) && isset($_POST['name_on_card'])){
-
+			if(isset($_POST['email']) && isset($_POST['type_of_payment']) && isset($_POST['card_number']) && isset($_POST['cvc']) && isset($_POST['name_on_card'])){
 				$email = $_POST['email'];
 				$typeOfPayment = $_POST['type_of_payment'];
 				$cardNumber = $_POST['card_number'];
-				$expiration = $_POST['expiration_date'];
+				$expiration = $_POST['month']."/".$_POST['year'];
 				$cvc = $_POST['cvc'];
 				$name_on_card = $_POST['name_on_card'];
 			
 
-				$sqlQuery = "INSERT INTO Bill_info(id_billInfo,email,type_of_payment,card_number,expiration_date,cvc,name_on_card) VALUES (:id_billInfo,:email,:type_of_payment,:card_number,:expiration_date,:cvc,:name_on_card)";
+				$sqlQuery = "INSERT INTO Bill_info(id_billInfo,email,type_of_payment,card_number,expiration_date,cvc,name_on_card) VALUES (null,:email,:type_of_payment,:card_number,:expiration_date,:cvc,:name_on_card)";
 
 				$statment = $this->db->prepare($sqlQuery);
 				$statment->bindParam(':email',$email,PDO::PARAM_STR);
@@ -71,6 +69,7 @@ class db_billInfo_mabage{
 				$statment->bindParam(':card_number',$cardNumber,PDO::PARAM_STR);
 				$statment->bindParam(':cvc',$cvc,PDO::PARAM_INT);
 				$statment->bindParam(':name_on_card',$name_on_card,PDO::PARAM_STR);
+				$statment->bindParam(':expiration_date',$expiration_date,PDO::PARAM_STR);
 
 				if(!$statment->execute()){
 						echo print_r($statment->errorInfo());
