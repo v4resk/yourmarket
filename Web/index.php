@@ -60,7 +60,25 @@
 
 <!--NAV-->
 	<div class="navigation" >
-		Home
+		
+		<p style="text-align: center;" ><a href="index.php"><img src="welcome.jpg" height="500" width="1250"></a></p>
+		<h1 style="text-align: center;">Welcome to YourMarket</h1> 
+		<h2 style="text-align: center; font-style:italic;">Yourmarket is the most used site for alcohol sellers. And all this support warms our hearts, we thank you for everything</h2>
+		<div class="getstarted">
+		<p>
+				<h3><strong> Get started </strong></h3>
+		</p>
+		<br>
+	</div>
+		<div class="nav1">
+			<h4>We are a platform for the sale of alcohol, mainly wine, beer and liquor with thousands of products available where people can bid on products from all over the world. 3 different ways of buying are available:</h4>
+		<br>
+            <h4> 1) Auctions where you can bid on competitors' offers.</h4>
+            <h4>2) Buy it know where you can buy directly the product you are interested in at a fixed price.</h4>
+            <h4>3) Best offer where you can negotiate directly with the seller. You can negotiate up to 5 times to conclude the final price of an article</h4> 
+
+		</div>
+		
 	</div>
 
 <!--FOOTER-->

@@ -75,5 +75,53 @@ cite {
 	height: 500px;
 }
 
+h1
+{
+	text-align: center;
+	position: relative;
+	align-content: center;
+	justify-content: center;
+	font-size: large;
+    
 
+}
+h2
+{
+	text-align: center;
+	position: relative;
+	align-content: center;
+	justify-content: center;
+    font-style: italic;
+    font-size: 15px;
+    color: gray;
+
+}
+h3
+{
+    font-weight: bold;
+    font-style: bold;
+    font-size: large;
+
+}
+.getstarted
+{
+	   font-weight: bold;
+    font-style: bold;
+    font-size: 30px;
+}
+h5
+{
+	
+	position: relative;
+	
+	font-size: large;
+	color: blue;
+	font-style : bold;
+    
+}
+p
+{  font-weight: large;
+    font-style: large;
+    font-size: large;
+}
 
