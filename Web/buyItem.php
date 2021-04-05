@@ -106,6 +106,7 @@
 						<input type="number" class="form-control " required name="actualPrice" aria-describedby="actualPriceHelp"  style="width: 35%; margin-left: 20px;" >
 					</div>
 		    	<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button></p>
+		    	<input type="hidden" name="id_item_bid" value="<?php echo $_POST["id_item"];?>"></p>
 
 				</form>	
 		  </div>

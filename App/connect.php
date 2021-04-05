@@ -256,9 +256,10 @@ if(isset($_POST["subBillInfo"])){
 
 if(isset($_POST["id_item_purchase"])){
   //We set the email customer in Item 
-	echo "OUEE SA A CREE";
-  $_SESSION["item_to_buy"] = new db_item($db,$_POST['id_item_purchase']);
- 
+ 	$_SESSION["item_to_buy"] = new db_item($db,$_POST['id_item_purchase']);
+}
+if(isset($_POST["id_item_bid"])){
+	$_SESSION["item_to_bid"] = new db_item($db,$_POST['id_item_bid']);
 }
 
 $_POST[] = array();

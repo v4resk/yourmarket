@@ -19,7 +19,7 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
   unset($_SESSION['item_to_buy']);
   echo "<script> location.href='index.php'; </script>";
   $_SESSION['green_alert'] = create_alert_green("Succeffully purchased");
-}
+  }
   exit;
 }else{
    
