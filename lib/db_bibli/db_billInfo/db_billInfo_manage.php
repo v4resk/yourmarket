@@ -1,6 +1,9 @@
 <?php
 
+/*All SQL table have an equivalent in php : there is a class db_<tabs_name> to represent the sql row 
+	the db_<tabs_name>_manage class is for update/remove/add one of this item in the Mysql data base 
 
+	all "manage" class receive a db_<tabs_name> object by reference to update the database with same data as saved in the  db_<tabs_name> class*/
 class db_billInfo_manage{
 	private $db;
 	public function __construct($db){

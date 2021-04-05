@@ -1,5 +1,8 @@
 <?php
 
+/* This file is start on every page , connect.php allow us too catch all $_POST var 
+	in order to start the good action asked by user*/
+
 if(!isset($_SESSION)){session_start();}
 
 try{
@@ -13,6 +16,7 @@ try{
 				die("ERROR".$e->intl_get_error_message());
 }
 
+//Login 
 if(isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
 	$userEmail = (String)$_POST['inputEmail'];
 	$userPasswd = (String)$_POST['inputPassword'];
@@ -27,7 +31,7 @@ if(isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
 	}
 }
 
-
+//Sign up 
 if(isset($_POST['subSignUp'])){
 	//Create manager to acces db
 	$temp_manager_to_addUser = new db_user_manage($db);
@@ -36,6 +40,7 @@ if(isset($_POST['subSignUp'])){
 	$_SESSION['blue_alert'] = create_alert_blue("Succeffully sign up");
 }
 
+//Add an item
 if(isset($_POST['subPubItemConf'])){
 	//Create a manger to acces DB
 	$temp_manager_to_addItem = new db_item_manage($db);
@@ -43,6 +48,7 @@ if(isset($_POST['subPubItemConf'])){
 	$temp_manager_to_addItem->db_addItem();
 	$_SESSION['green_alert'] = create_alert_green("Item succeffully posted");
 }
+//When an user ask to update his profile
 if(isset($_POST['subUpdate'])){
 
 	$temp_manager_to_updateUser = new db_user_manage($db);
@@ -93,6 +99,7 @@ if(isset($_POST['subUpdate'])){
 	else{
 		if(isset($_POST["email"]))
 	{
+		//Update an user from admin panel
 		$_SESSION['admin_user_to_update']->setEmail($_POST["email"]);
 	}
 	if (isset($_POST["name"])) {
@@ -140,6 +147,7 @@ if(isset($_POST['subUpdate'])){
 
 }
 
+//Update an item from admin panel
 if(isset($_POST['updateItem'])){
 
 	$temp_manager_to_updateItem = new db_item_manage($db);
@@ -203,12 +211,13 @@ if(isset($_POST['updateItem'])){
 
 }
 
+//Log out 
 if(isset($_POST['killSession'])){
 	session_unset();
 	$_SESSION['blue_alert'] = create_alert_blue("Succeffully log out");
 }
 
-
+//Delet an user from AdminPanel
 if(isset($_POST["deleteSubmitUser"])){
 	
 	$userToDelete = new db_user($db,$_POST["delete"]);
@@ -217,6 +226,7 @@ if(isset($_POST["deleteSubmitUser"])){
 
 }
 
+//delet an item from admin panel
 if(isset($_POST["deleteSubmitItem"])){
 
 	$itemToDelete = new db_item($db,$_POST["deleteItem"]);
@@ -225,7 +235,7 @@ if(isset($_POST["deleteSubmitItem"])){
 
 }
 
-
+// Global var set to update Item and User
 if(isset($_POST["updateSubmit"])){
 	$_SESSION["admin_user_to_update"] = new db_user($db,$_POST["update_user"]);
 }
@@ -241,6 +251,7 @@ if(isset($_POST["deleteItemsUser"])){
 	$itemManager->db_deleteItem($itemToDelete);
 }
 
+//delet a bill info (asked by user)
 if (isset($_POST["deleteBillInfo"])) {
 	$billToDelete = new db_billInfo($db,$_SESSION["db_user"]->getIdBillInfo());
 	$billManager = new db_billInfo_manage($db);
@@ -252,6 +263,7 @@ if (isset($_POST["deleteBillInfo"])) {
 
 }
 
+//add a bill info
 if(isset($_POST["subBillInfo"])){
 	$billManager = new db_billInfo_manage($db);
 	$billManager->db_addBill();
@@ -275,6 +287,19 @@ if(isset($_POST["id_item_bid"])){
 }
 if(isset($_POST["id_item_max_bid"])){
 	$_SESSION["item_to_bid_for_maxPrice"] = new db_item($db,$_POST["id_item_max_bid"]);
+}
+
+//add an item to the user cart
+if(isset($_POST["addCartBtn"])){
+	$cartManager = new db_cart_manage($db);
+	$cartManager->db_addCard();
+	$_SESSION['green_alert'] = create_alert_green("Item added to cart");
+}
+//remove an item from the user cart
+if(isset($_POST["remove_cart"])){
+	$cartManager = new db_cart_manage($db);
+	$cartManager->db_deleteCart($_SESSION["db_user"]->getEmail(),$_POST["id_item_remove_cart"]);
+	$_SESSION['green_alert'] = create_alert_green("Item removed from cart");
 }
 
 $_POST[] = array();

@@ -1,7 +1,7 @@
 <?php
 	
 
-	if($item_actual_bid_price < $item_user_bid_price){
+	if($item_actual_bid_price < $user_max_order){
 		$_SESSION["bid_email"] = $_SESSION["db_user"]->getEmail();
 		$_SESSION["bid_date_m"] = date("Y-m-d");
 		$_SESSION["bid_id_item"] = $item->getIdItem();
