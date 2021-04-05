@@ -71,12 +71,12 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
 
 <body>
 
-<form id=paiement action="" method="post">
+<form id=paiement action="myAccount.php" method="post">
  
   <fieldset>
   	
     <legend>Banking Information </legend>
-    <p>No payment methode found, you have to register one</p>
+    <p>No payment method found, you have to register one</p>
    <div class="box">
         <fieldset>
         	
@@ -97,21 +97,23 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
         </fieldset>
     
      
-        <label for="numero_de_carte">number of card</label>
+        <label for="numero_de_carte">Number of card</label>
         <input id="numero_de_carte" name="card_number" type="text" required>
     
       <p></p>
-        <input type="text" name="expiration_date">
+        <label for="numero_de_carte">Expiration date</label>
+        <input type="text" name="expirationDate">
+
     <p></p>
         <label for="securite">CVC</label>
         <input id="securite" name="cvc" type="text" required >
       <p></p>
       
-        <label for="nom_porteur">Your firstname</label>
+        <label for="nom_porteur">Your Firstname</label>
         <input id="nom_porteur" name="name_on_card" type="text" placeholder="Your firstname" required>
       <p></p>
       <input type="hidden" name="email" value="<?php echo $_SESSION["db_user"]->getEmail(); ?>">
-      <input type="submit" name="subBillInfo" value="save">
+      <input type="submit" name="subBillInfo" value="Save">
 
   </fieldset>
 

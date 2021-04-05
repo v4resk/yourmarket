@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My account</title>
+	<title>Billing Info</title>
 	<meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="template.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -68,43 +68,68 @@
 <!--NAV-->
 
 	<div class="navigation">
-		<br>
-		<br>
-		<h1 style="text-align: center;">Your Items</h1>
-		<br>
-		<br>
 		
+		<form id=paiement action="myAccount.php" method="post">
+ 
+		  <fieldset>
+		  	
+		    <h1><center>Banking Information </center></h1>
+		   <div class="box">
+		        <fieldset>
 
-		<div class="card_gr">
-				<?php 
-						for($i=0;$i<sizeof($tabItem);$i++){		
-					 ?>
+				<?php
+				if(!isset($_SESSION["db_user"])){
+					  echo "<script> location.href='index.php'; </script>";
+					  $_SESSION['red_alert'] = create_alert_red("Need to be log in");
+					  exit;
+					}
+				else if($_SESSION["db_user"]->getIdBillInfo() == null ){
 
-					<div class="card" style="width: 18rem; border: 1px solid black; box-shadow: 1px; margin-bottom: 10px; margin-left: 10px;">
-				  		<img src="uploads/<?php echo $tabItem[$i]->getPic();?>" class="card-img-top" alt="<?php echo $tabItem[$i]->getPic();?>" width="178" height="200">
-				  		<div class="card-body">
-					    	<h5 class="card-title"><center><STRONG><?php echo $tabItem[$i]->getName(); ?></STRONG></center></h5>
-					    	<p class="card-text"><center><?php echo $tabItem[$i]->getInfo(); ?></center></p>
-					  	</div>
-				  		<ul class="list-group list-group-flush">
-					    <li class="list-group-item">Sell method: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
-					    <li class="list-group-item">Category: <?php echo $tabItem[$i]->getCategory(); ?></li>
-					    <li class="list-group-item">Price: <?php echo $tabItem[$i]->getPrice(); ?></li>
-				  		</ul>
-					  	<div class="card-body">
-					  		<form method="post" action="">
-					  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
-					    	<p><center><button type="submit" class="btn btn-danger" name="deleteItemsUser">Delete</button></center></p>
-					    	</form>
-					  </div>
-
-					</div>
-				<?php }
+						echo "<script> location.href='payment.php'; </script>";
+						exit;
+					}
+				else if($_SESSION["db_user"]->getIdBillInfo() !== null )
+				{
+					$db_billInfo = new db_billInfo($db,$_SESSION["db_user"]->getIdBillInfo());
+					echo $db_billInfo->getExpirationDate();
 					?>
-		</div>
-						<p><center>BIN : Buy It Now</center></p>
-					<p><center>BID : Auctions</center></p>
-					<p><center>BO : Best Offer</center></p>
+
+					<form action="myAccount.php" method="post">
+					 <h2><center>Your bank account details</center></h2><br><br>
+					 <small><center>If you want to update your billing Information you have to delete the wrong information. If you don't want to delete your information, please press return button</center></small><br><br>
+
+					 	<div class="form-group">
+							<label for="typeOfPayment" style="margin-left: 450px;">Payment Method</label>
+							<input type="text" class="form-control is-valid" name="typeOfPayment" aria-describedby="typeOfPaymentHelp" placeholder=" <?php echo  $db_billInfo->getTypeOfPayment(); ?>" value="<?php echo  $db_billInfo->getTypeOfPayment();?>" style="width: 35%; margin-left: 450px; ">
+						</div>
+					 	<div class="form-group">
+							<label for="cardNumber" style="margin-left: 450px;">Card Number</label>
+							<input type="text" class="form-control is-valid" name="cardNumber" aria-describedby="cardNumberHelp" placeholder=" <?php echo  $db_billInfo->getCardNumber(); ?>" value="<?php echo  $db_billInfo->getCardNumber();?>" style="width: 35%; margin-left: 450px; ">
+						</div>
+					 	<div class="form-group">
+							<label for="expirationDate" style="margin-left: 450px;">Expiration Date</label>
+							<input type="text" class="form-control is-valid" name="expirationDate" aria-describedby="expirationDateHelp" placeholder=" <?php echo  $db_billInfo->getExpirationDate(); ?>" value="<?php echo  $db_billInfo->getExpirationDate();?>" style="width: 35%; margin-left: 450px; ">
+						</div>
+						<div class="form-group">
+							<label for="cvc" style="margin-left: 450px;">CVC</label>
+							<input type="text" class="form-control is-valid" name="cvc" aria-describedby="cvcHelp" placeholder=" <?php echo  $db_billInfo->getCVC(); ?>" value="<?php echo  $db_billInfo->getCVC();?>" style="width: 35%; margin-left: 450px; ">
+						</div>
+					 	<div class="form-group">
+							<label for="name" style="margin-left: 450px;">Name</label>
+							<input type="text" class="form-control is-valid" name="name" aria-describedby="nameHelp" placeholder=" <?php echo  $db_billInfo->getNameOnCard(); ?>" value="<?php echo  $db_billInfo->getNameOnCard();?>" style="width: 35%; margin-left: 450px; ">
+						</div>
+
+
+
+				<?php
+				}	
+				?>
+
+		     <center> <input type="submit" name="deleteBillInfo" value="Delete"></center>
+
+		  </fieldset>
+		  </form>
+
 	</div>
 
 <!--FOOTER-->

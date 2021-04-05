@@ -241,6 +241,17 @@ if(isset($_POST["deleteItemsUser"])){
 	$itemManager->db_deleteItem($itemToDelete);
 }
 
+if (isset($_POST["deleteBillInfo"])) {
+	$billToDelete = new db_billInfo($db,$_SESSION["db_user"]->getIdBillInfo());
+	$billManager = new db_billInfo_manage($db);
+	$billManager->db_deleteBill($billToDelete);
+	
+	$_SESSION["db_user"]->setNullBillInfo();
+	$userManager = new db_user_manage($db);
+	$userManager->db_updateUser($_SESSION["db_user"]);
+
+}
+
 if(isset($_POST["subBillInfo"])){
 	$billManager = new db_billInfo_manage($db);
 	$billManager->db_addBill();
@@ -256,10 +267,12 @@ if(isset($_POST["subBillInfo"])){
 
 if(isset($_POST["id_item_purchase"])){
   //We set the email customer in Item 
+
  	$_SESSION["item_to_buy"] = new db_item($db,$_POST['id_item_purchase']);
 }
 if(isset($_POST["id_item_bid"])){
 	$_SESSION["item_to_bid"] = new db_item($db,$_POST['id_item_bid']);
+
 }
 
 $_POST[] = array();

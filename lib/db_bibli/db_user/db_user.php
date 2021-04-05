@@ -151,6 +151,10 @@ class db_user{
 			$this->idBillInfo = (int)$res['id_billInfo'];
 		}
 	}
+	public function setNullBillInfo()
+	{
+		$this->idBillInfo = null;
+	}
 	public function setFavBackgroundNo($favBack){
 		$this->favBackgroundNo = $favBack;
 	}
