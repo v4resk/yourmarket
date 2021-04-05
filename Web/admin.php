@@ -21,7 +21,7 @@
 <head>
 	<title></title>
 		<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="template1.css">
+	<link rel="stylesheet" type="text/css" href="template.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -51,21 +51,18 @@
 						</div>
 					
 					</li>
-					<li><a href="order.php">Order</a></li>
-					<li><a href="billinfo.php">Bill info</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="cart.html"><img src="cart.png" width="30" height="30" ></a></li>
 					<li><a href="signInOrSignUp.php"><img src="profile_icon.png" width="30" height="30"></a></li>
 				</ul>
 			</div>
         </nav>
 	</div>
-	<div class="col tex-center">
+	<div class="navigation">
 	
 	<br>
 	<br>
-	<h1 style="text-align: center;">Welcom to the Admin Panel !</h1>
+	<h1 style="text-align: center;">Welcome to the Admin Panel !</h1>
 	<br>
 	<p style="text-align: center;"><?php echo "E-Mail : " . $_SESSION['db_user']->getEmail() . "<br>";?></p>
 	<p style="text-align: center;"><?php echo "Name : " . $_SESSION['db_user']->getName() . "<br>";?></p>	
