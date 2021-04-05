@@ -1,7 +1,20 @@
-<?php require '../App/init.php'; ?>
-<?php require '../App/check_alert.php' ?>
-<?php ini_set('display_errors', 'on');?>
 
+<?php require '../App/init.php'; ?>
+<?php  require '../App/check_alert.php' ?>
+<?php 
+	if(!isset($_SESSION['db_user'])){
+		echo "<script> location.href='signInOrSignUp.php'; </script>";
+		$_SESSION['red_alert'] = create_alert_red("You need to Sign up/Sing in before");
+        exit;
+ 	}else if($_SESSION['db_user']->getWhoAmI() != "Admin" ){
+ 		echo "<script> location.href='index.php'; </script>";
+ 		$_SESSION['red_alert'] = create_alert_red("You need to be register as a Admin ");
+        exit;
+ 	}
+	else{
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,3 +119,4 @@ $statement=$db->query($sqlQuery);?>
 	</footer>
 </body>
 </html>
+<?php }?>
