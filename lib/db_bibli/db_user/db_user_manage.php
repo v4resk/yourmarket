@@ -75,7 +75,7 @@ class db_user_manage{
 			$statment->bindParam(':date_naissance',$user_date_of_b,PDO::PARAM_STR);
 			$statment->bindParam(':passwd',$user_Passwd,PDO::PARAM_STR);
 			$statment->bindParam(':whoAmI',$user_WhoAmI,PDO::PARAM_STR);
-			$statment->bindParam(':id_billInfo',$user_idBillInfo,PDO::PARAM_INT);
+			$statment->bindParam(':id_billInfo',$user_idBillInfo!="null" ? $user_idBillInfo : null,PDO::PARAM_INT);
 			$statment->bindParam(':favBack',$user_favBackground,PDO::PARAM_INT);
 			$statment->bindParam(':photo_id',$user_photoId,PDO::PARAM_STR);
 			$statment->bindParam(':addr1',$user_addr1,PDO::PARAM_STR);

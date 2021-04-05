@@ -19,7 +19,36 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
   unset($_SESSION['item_to_buy']);
   echo "<script> location.href='index.php'; </script>";
   $_SESSION['green_alert'] = create_alert_green("Succeffully purchased");
-}
+  }
+
+  // Place a bid order (price)
+  if(isset($_SESSION["item_to_bid"])){
+    $item = $_SESSION["item_to_bid"];
+    $item_min_price = floatval($item->getPrice()); // min price set here
+    $user_ask_order = 
+    $itemManage = new db_item_manage($db);
+
+    require '../App/bid_script.php';
+
+    unset($_SESSION['item_to_bid']);
+    echo "<script> location.href='index.php'; </script>";
+    $_SESSION['green_alert'] = create_alert_green("Order placed !");
+  }
+
+  // Place a max bid order
+  if(isset($_SESSION["item_to_bid_for_maxPrice"])){
+    $item = $_SESSION["item_to_bid_for_maxPrice"];
+    $item_min_price = floatval($item->getPrice()); // min price set here
+    $user_max_order = 
+    $itemManage = new db_item_manage($db);
+
+    require '../App/max_bid_script.php';
+
+    unset($_SESSION['item_to_bid_for_maxPrice']);
+    echo "<script> location.href='index.php'; </script>";
+    $_SESSION['green_alert'] = create_alert_green("Order placed !");
+  }
+
   exit;
 }else{
    
@@ -52,57 +81,28 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
         	
           <legend>Your bank account details</legend>
           
-              <input id=visa name=type_of_payment type=radio value="visa">
-              <label for=visa>VISA</label>
+              <input id="visa" name="type_of_payment" type="radio" value="visa">
+              <label for="visa">VISA</label>
                <img src="Visa1.png" width="85" height="50"> 
             <p></p>
-              <input id=americanexpress name=type_of_payment type=radio value="americanexpress">
-              <label for=americanexpres>American Express</label>
+              <input id="americanexpress" name="type_of_payment" type="radio" value="americanexpress">
+              <label for="americanexpres">American Express</label>
               <img src="americanexpress.png" width="85" height="50"> 
            <p></p>
-              <input id=mastercard name=type_of_payment type=radio value="mastercard">
-              <label for=mastercard>Mastercard</label>
+              <input id="mastercard" name="type_of_payment" type="radio" value="mastercard">
+              <label for="mastercard">Mastercard</label>
               <img src="Mastercard.png" width="85" height="50"> 
            <p></p>
         </fieldset>
     
      
-        <label for=numero_de_carte>number of card</label>
-        <input id=numero_de_carte name=card_number type=text required>
+        <label for="numero_de_carte">number of card</label>
+        <input id="numero_de_carte" name="card_number" type="text" required>
     
       <p></p>
-        <div>
-      <span>
-         <label for=expiration date>Expiration date</label>
-        <select id="month"name="month">
-         <option selected="January">April</option>
-         <option >February</option>
-         <option>March</option>
-         <option>April</option>
-         <option>May</option>
-         <option>June</option>
-         <option>July</option>
-         <option>August</option>
-         <option>September</option>
-         <option>October</option>
-         <option>November</option>
-         <option>December</option>
-        </select>
-      </span>
-      <span>
-        <label for="year">Year:</label>
-        <select id="year" name="year" value="2021">
-        	<option>2021</option>
-        	<option>2022</option>
-        	<option>2023</option>
-        	<option>2024</option>
-        	<option>2025</option>
-        	<option>2026</option>
-        	<option>2027</option>
-        	<option>2028</option>
-        </select>
-      </span>
-    </div>
+
+        <input type="text" name="expiration_date">
+
     <p></p>
         <label for="securite">CVC</label>
         <input id="securite" name="cvc" type="text" required >

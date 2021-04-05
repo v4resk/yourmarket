@@ -56,7 +56,7 @@ class db_billInfo_manage{
 				$email = $_POST['email'];
 				$typeOfPayment = $_POST['type_of_payment'];
 				$cardNumber = $_POST['card_number'];
-				$expiration = $_POST['expirationDat'];
+				$expiration = $_POST['expirationDate'];
 				$cvc = $_POST['cvc'];
 				$name_on_card = $_POST['name_on_card'];
 			

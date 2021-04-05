@@ -124,7 +124,7 @@
 				<?php
 				}	
 				?>
-
+				
 		      <input type="submit" name="deleteBillInfo" value="Delete">
 
 		  </fieldset>
