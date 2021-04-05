@@ -1,4 +1,3 @@
-
 <?php require '../App/init.php'; ?>
 <?php  require '../App/check_alert.php' ?>
 

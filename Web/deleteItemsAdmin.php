@@ -52,29 +52,28 @@
 
 <!--NAVIGATION-->
 
-<!--<div class="navigation">
+<div class="navigation">
 	<?php 
 
 	$sqlQuery="SELECT * FROM Item";
 	$statement=$db->query($sqlQuery);?>
 	<form action="" method="post">
 		<label for="deleteItem" style="margin-left: 42%;">Choose an item to delete</label>
-
 		<input list="list" name="deleteItem" autocomplete="off" style="margin-left: 42%;">
 		<datalist id="list">
 		<?php
 		while ($result=$statement->fetch()) {
 			?>
-			<option value="<?php echo $result["id_item"]²;?>">
+			<option value="<?php echo $result["id_item"];?>">
 			<?php
 		}
 
 		?>
 		</datalist>
 		<input type="submit" name="deleteSubmitItem" value="Delete">
-		<div class="alert alert-danger" role="alert" style="width: 32%;margin-top:5px;  margin-left: 37%;">Delete an User 'll automatically delete all related Orders/Items !</div>
+		<div class="alert alert-danger" role="alert" style="width: 30%;margin-top:5px;  margin-left: 37%;">Delete an Item 'll automatically delete all related Orders/Items !</div>
 	</form>
-</div>-->
+</div>
 <!--FOOTER-->
 <footer class="site-footer">
 		<div class="container">
