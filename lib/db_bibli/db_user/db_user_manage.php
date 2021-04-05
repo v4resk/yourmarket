@@ -58,7 +58,6 @@ class db_user_manage{
 			$user_date_of_b = (String)$user->getDateOfBirth();
 			$user_Passwd = (String)$user->getPasswd();
 			$user_WhoAmI = (String)$user->getWhoAmI();
-			$user_idBillInfo = (int)$user->getIdBillInfo();
 			$user_favBackground = (int)$user->getFavBackgroundNo();
 			$user_photoId = (String)$user->getPhotoId();
 			$user_addr1 = (String)$user->getAddr1();
@@ -67,15 +66,27 @@ class db_user_manage{
 			$user_zip = (String)$user->getZip();
 			$user_country = (String)$user->getCountry();
 			$user_phone = $user->getPhone();
+			$null = null;
 
 			$sqlQuery = "UPDATE User SET name = :name, firstName = :firstName, date_naissance = :date_naissance , mdp = :passwd, whoAmI = :whoAmI, id_billInfo = :id_billInfo, fav_background_number = :favBack, photo_id = :photo_id, addr1 = :addr1, addr2 = :addr2, city = :city, postal_code = :zip, country = :country, phone = :phone WHERE email = :email";
 			$statment = $this->db->prepare($sqlQuery);
+
+			if($user->getIdBillInfo() !== null){
+				$user_idBillInfo = (int)$user->getIdBillInfo();
+				$statment->bindParam(':id_billInfo',$user_idBillInfo,PDO::PARAM_INT);
+
+			}
+			else{
+				$statment->bindParam(':id_billInfo',$null,PDO::PARAM_NULL);
+			}
+
+
+			
 			$statment->bindParam(':name',$user_name,PDO::PARAM_STR);
 			$statment->bindParam(':firstName',$user_fName,PDO::PARAM_STR);
 			$statment->bindParam(':date_naissance',$user_date_of_b,PDO::PARAM_STR);
 			$statment->bindParam(':passwd',$user_Passwd,PDO::PARAM_STR);
 			$statment->bindParam(':whoAmI',$user_WhoAmI,PDO::PARAM_STR);
-			$statment->bindParam(':id_billInfo',$user_idBillInfo!="null" ? $user_idBillInfo : null,PDO::PARAM_INT);
 			$statment->bindParam(':favBack',$user_favBackground,PDO::PARAM_INT);
 			$statment->bindParam(':photo_id',$user_photoId,PDO::PARAM_STR);
 			$statment->bindParam(':addr1',$user_addr1,PDO::PARAM_STR);
@@ -85,6 +96,8 @@ class db_user_manage{
 			$statment->bindParam(':country',$user_country,PDO::PARAM_STR);
 			$statment->bindParam(':phone',$user_phone,PDO::PARAM_STR);
 			$statment->bindParam(':email',$user_email,PDO::PARAM_STR);
+
+
 			
 			if (!$statment->execute()) {
 			    print_r($statment->errorInfo());

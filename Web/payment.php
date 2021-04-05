@@ -96,12 +96,12 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
         </fieldset>
     
      
-        <label for="numero_de_carte">number of card</label>
+        <label for="numero_de_carte">Number of card</label>
         <input id="numero_de_carte" name="card_number" type="text" required>
     
       <p></p>
-
-        <input type="text" name="expiration_date">
+        <label for="numero_de_carte">Expiration date</label>
+        <input type="text" name="expirationDate">
 
     <p></p>
         <label for="securite">CVC</label>

@@ -69,7 +69,7 @@
 
 	<div class="navigation">
 		
-		<form id=paiement action="" method="post">
+		<form id=paiement action="myAccount.php" method="post">
  
 		  <fieldset>
 		  	
@@ -83,7 +83,7 @@
 					  $_SESSION['red_alert'] = create_alert_red("Need to be log in");
 					  exit;
 					}
-				else if($_SESSION["db_user"]->getIdBillInfo() === null ){
+				else if($_SESSION["db_user"]->getIdBillInfo() == null ){
 
 						echo "<script> location.href='payment.php'; </script>";
 						exit;
@@ -124,8 +124,8 @@
 				<?php
 				}	
 				?>
-				
-		      <input type="submit" name="deleteBillInfo" value="Delete">
+
+		     <center> <input type="submit" name="deleteBillInfo" value="Delete"></center>
 
 		  </fieldset>
 		  </form>

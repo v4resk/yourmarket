@@ -244,8 +244,11 @@ if(isset($_POST["deleteItemsUser"])){
 if (isset($_POST["deleteBillInfo"])) {
 	$billToDelete = new db_billInfo($db,$_SESSION["db_user"]->getIdBillInfo());
 	$billManager = new db_billInfo_manage($db);
-	$billManager->db_deleteBillInfo($billToDelete);
-	$_SESSION["db_user"]->setIdBillInfo("null");
+	$billManager->db_deleteBill($billToDelete);
+	
+	$_SESSION["db_user"]->setNullBillInfo();
+	$userManager = new db_user_manage($db);
+	$userManager->db_updateUser($_SESSION["db_user"]);
 
 }
 
