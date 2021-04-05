@@ -152,15 +152,7 @@ if(isset($_POST['updateItem'])){
 			$_SESSION['admin_item_to_update']->setName($_POST["name"]);		
 		}
 		if(isset($_POST["sellBID"])){
-<<<<<<< HEAD
-			$_SESSION['admin_item_to_update']->setSellBID($_POST["sellBID"]);	
-		}
-		if(isset($_POST["sellBO"])){
-			$_SESSION['admin_item_to_update']->setSellBO($_POST["sellBO"]);		
-		}
-		if(isset($_POST["sellBIN"])){
-			$_SESSION['admin_item_to_update']->setSellBIN($_POST["sellBIN"]);	
-=======
+
 			$_SESSION['admin_item_to_update']->setSellBID(1);	
 		}else{
 			$_SESSION['admin_item_to_update']->setSellBID(0);
@@ -174,7 +166,7 @@ if(isset($_POST['updateItem'])){
 			$_SESSION['admin_item_to_update']->setSellBIN(1);	
 		}else{
 			$_SESSION['admin_item_to_update']->setSellBIN(0);	
->>>>>>> acf86a3cf38d832705e389b14f74e0b24efd9268
+
 		}
 		if(isset($_POST["category"])){
 			$_SESSION['admin_item_to_update']->setCategory($_POST["category"]);		
@@ -195,16 +187,13 @@ if(isset($_POST['updateItem'])){
 			$_SESSION['admin_item_to_update']->setSellerId($_POST["sellerId"]);
 		}
 		if(isset($_POST["customerId"])){
-<<<<<<< HEAD
-			$_SESSION['admin_item_to_update']->setCustomerId($_POST["customerId"]);
-=======
+
 			if(strlen($_POST["customerId"])<=1){
 
 			}else{
 				$_SESSION['admin_item_to_update']->setCustomerId($_POST["customerId"]);
 			}
 			
->>>>>>> acf86a3cf38d832705e389b14f74e0b24efd9268
 		}
 			$temp_manager_to_updateItem->db_updateItem($_SESSION['admin_item_to_update']);
 	
