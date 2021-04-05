@@ -25,7 +25,8 @@ else if($_SESSION["db_user"]->getIdBillInfo() !== null ){
   if(isset($_SESSION["item_to_bid"])){
     $item = $_SESSION["item_to_bid"];
     $item_min_price = floatval($item->getPrice()); // min price set here
-    $user_ask_order = 
+    $item_user_bid_price = $_POST["bidPrice"];
+    $item_actual_bid_price = $_POST["actualPrice"];
     $itemManage = new db_item_manage($db);
 
     require '../App/bid_script.php';

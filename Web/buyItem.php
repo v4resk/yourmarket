@@ -1,6 +1,7 @@
 
 <?php require '../App/init.php'; ?>
 <?php require '../App/check_alert.php' ?>
+<?php require '../App/currentBidPrice.php' ?>
 <?php 
 	if(!isset($_POST['id_item'])){
 		echo "<script> location.href='index.php'; </script>";
@@ -99,11 +100,11 @@
 				<form action="payment.php" method="post">
 					<div class="form-group">
 						<label for="actualPrice" style="margin-left: 20px;">Actual Price (£)</label>
-						<input type="number" class="form-control "  readonly name="actualPrice" aria-describedby="actualPriceHelp" placeholder="0.889" style="width: 35%; margin-left: 20px;" >
+						<input type="number" class="form-control "  readonly name="actualPrice" aria-describedby="actualPriceHelp" placeholder="<?php echo currentBidPrice($db,$_POST["id_item"]) ?>" value="<?php echo currentBidPrice($db,$_POST["id_item"]) ?>" style="width: 35%; margin-left: 20px;" >
 					</div>
 					<div class="form-group">
 						<label for="bidPrice" style="margin-left: 20px;">Bid Price (£)</label>
-						<input type="number" class="form-control " required name="actualPrice" aria-describedby="actualPriceHelp"  style="width: 35%; margin-left: 20px;" >
+						<input type="number" class="form-control " required name="bidPrice" aria-describedby="actualPriceHelp"  style="width: 35%; margin-left: 20px;" >
 					</div>
 		    	<p style="margin-left: 20px;"><button type="submit" class="btn btn-success">Purchase</button></p>
 		    	<input type="hidden" name="id_item_bid" value="<?php echo $_POST["id_item"];?>"></p>

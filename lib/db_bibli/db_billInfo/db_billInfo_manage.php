@@ -10,9 +10,9 @@ class db_billInfo_manage{
 	public function db_deleteBill($bill){
 		if(isset($this->db)){
 			$id_bill_int = (int)$bill->getIdBill(); 
-			$sqlQuery="DELETE From Cart WHERE id_billInfo = :id_billInfo";
+			$sqlQuery="DELETE From Bill_info WHERE id_billInfo = :id_billInfo";
 			$statment = $this->db->prepare($sqlQuery);
-			$statment->bindParam(':item_id',$id_item_int,PDO::PARAM_INT);
+			$statment->bindParam(':id_billInfo',$id_bill_int,PDO::PARAM_INT);
 			if(!$statment->execute()){
 				echo print_r($statment->errorInfo());
 			}
