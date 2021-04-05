@@ -188,52 +188,51 @@ if(isset($_POST['updateItem'])){
 
 		 if(isset($_POST["id_item"]))
 		{ 
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setIdItem($_POST["id_item"]);
 		}
 		if (isset($_POST["name"])) {
-			echo "string3";
 			$_SESSION['admin_item_to_update']->setName($_POST["name"]);		
 		}
 		if(isset($_POST["sellBID"])){
-			echo "string1";
-			$_SESSION['admin_item_to_update']->setSellBID($_POST["sellBID"]);	
+			$_SESSION['admin_item_to_update']->setSellBID(1);	
+		}else{
+			$_SESSION['admin_item_to_update']->setSellBID(0);
 		}
 		if(isset($_POST["sellBO"])){
-			echo "string1";
-			$_SESSION['admin_item_to_update']->setSellBO($_POST["sellBO"]);		
+			$_SESSION['admin_item_to_update']->setSellBO(1);		
+		}else{
+			$_SESSION['admin_item_to_update']->setSellBO(0);	
 		}
 		if(isset($_POST["sellBIN"])){
-			echo "string1";
-			$_SESSION['admin_item_to_update']->setSellBIN($_POST["sellBIN"]);	
+			$_SESSION['admin_item_to_update']->setSellBIN(1);	
+		}else{
+			$_SESSION['admin_item_to_update']->setSellBIN(0);	
 		}
 		if(isset($_POST["category"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setCategory($_POST["category"]);		
 		}
 		if(isset($_POST["deliveryPrice"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setDeliveryPrice($_POST["deliveryPrice"]);		
 		}
 		if (isset($_POST["price"])) {
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setPrice($_POST["price"]);		
 		}
 		if(isset($_POST["fromTime"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setFromTime($_POST["fromTime"]);		
 		}
 		if(isset($_POST["toTime"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setToTime($_POST["toTime"]);		
 		}
 		if(isset($_POST["sellerId"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setSellerId($_POST["sellerId"]);
 		}
 		if(isset($_POST["customerId"])){
-			echo "string1";
-			$_SESSION['admin_item_to_update']->setCustomerId($_POST["customerId"]);
+			if(strlen($_POST["customerId"])<=1){
+
+			}else{
+				$_SESSION['admin_item_to_update']->setCustomerId($_POST["customerId"]);
+			}
+			
 		}
 			$temp_manager_to_updateItem->db_updateItem($_SESSION['admin_item_to_update']);
 	
