@@ -67,13 +67,14 @@
 				    	<p class="card-text"><?php echo $tabItem[$i]->getInfo(); ?></p>
 				  	</div>
 			  		<ul class="list-group list-group-flush">
-				    <li class="list-group-item">Sell methode: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
+				    <li class="list-group-item">Sell method: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
 				    <li class="list-group-item">Category: <?php echo $tabItem[$i]->getCategory(); ?></li>
 				    <li class="list-group-item">Price: <?php echo $tabItem[$i]->getPrice(); ?></li>
 			  		</ul>
 				  	<div class="card-body">
 				  		<form method="post" action="buyItem.php">
 				  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
+				  		<p style="text-align: center;"><button><img src="addToCart.png" height="40" weight="40"></button></p><br>
 				    	<p><center><button type="submit" class="btn btn-success">Purchase</button></center></p>
 				    	</form>
 				  </div>
