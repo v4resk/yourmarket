@@ -13,7 +13,7 @@
 </head>
 <body>
 <!-- HEADER -->
-	<div class="headr">
+		<div class="headr">
 		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 	<div class="row" id="">
@@ -39,6 +39,8 @@
 					<li><a href="sell.php">Sell</a></li>
 					<li><a href="updateUserInfo.php">Update your Information</a></li>
 					<li><a href="userItems.php">Manage Items</a></li>
+					<li><a href="purchaseHistory.php">Purchase History</a></li>
+					<li><a href="sellHistory.php">Sell History</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="cart.php"><img src="cart.png" width="30" height="30" ></a></li>
@@ -47,7 +49,6 @@
 			</div>
         </nav>
 	</div>	
-
 
 	<form action="" method="post">
 

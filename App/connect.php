@@ -27,6 +27,7 @@ if(isset($_POST['inputEmail']) && isset($_POST['inputPassword'])){
 	}
 }
 
+
 if(isset($_POST['subSignUp'])){
 	//Create manager to acces db
 	$temp_manager_to_addUser = new db_user_manage($db);
@@ -143,101 +144,46 @@ if(isset($_POST['updateItem'])){
 
 	$temp_manager_to_updateItem = new db_item_manage($db);
 
-	if(isset($_POST['forDbItem'])){
-		 if(isset($_POST["id_item"]))
-		{
-			echo "string";
-			$_SESSION['db_item']->setIdItem($_POST["id_item"]);
-		}
-		if (isset($_POST["name"])) {
-			$_SESSION['db_item']->setName($_POST["name"]);		
-		}
-		if(isset($_POST["sellBID"])){
-			$_SESSION['db_item']->setSellBID($_POST["sellBID"]);	
-		}
-		if(isset($_POST["sellBO"])){
-			$_SESSION['db_item']->setSellBO($_POST["sellBO"]);		
-		}
-		if(isset($_POST["sellBIN"])){
-			$_SESSION['db_item']->setSellBIN($_POST["sellBIN"]);	
-		}
-		if(isset($_POST["category"])){
-			$_SESSION['db_item']->setCategory($_POST["category"]);		
-		}
-		if(isset($_POST["deliveryPrice"])){
-			$_SESSION['db_item']->setDeliveryPrice($_POST["deliveryPrice"]);		
-		}
-		if (isset($_POST["price"])) {
-			$_SESSION['db_item']->setPrice($_POST["price"]);		
-		}
-		if(isset($_POST["fromTime"])){
-			$_SESSION['db_item']->setFromTime($_POST["fromTime"]);		
-		}
-		if(isset($_POST["toTime"])){
-			$_SESSION['db_item']->setToTime($_POST["toTime"]);		
-		}
-		if(isset($_POST["sellerId"])){
-			$_SESSION['db_item']->setSellerId($_POST["sellerId"]);
-		}
-		if(isset($_POST["customerId"])){
-			$_SESSION['db_item']->setCustomerId($_POST["customerId"]);
-		}
-			$temp_manager_to_updateItem->db_updateItem($_SESSION['db_item']);
-		}
-	else{
-
 		 if(isset($_POST["id_item"]))
 		{ 
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setIdItem($_POST["id_item"]);
 		}
 		if (isset($_POST["name"])) {
-			echo "string3";
 			$_SESSION['admin_item_to_update']->setName($_POST["name"]);		
 		}
 		if(isset($_POST["sellBID"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setSellBID($_POST["sellBID"]);	
 		}
 		if(isset($_POST["sellBO"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setSellBO($_POST["sellBO"]);		
 		}
 		if(isset($_POST["sellBIN"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setSellBIN($_POST["sellBIN"]);	
 		}
 		if(isset($_POST["category"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setCategory($_POST["category"]);		
 		}
 		if(isset($_POST["deliveryPrice"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setDeliveryPrice($_POST["deliveryPrice"]);		
 		}
 		if (isset($_POST["price"])) {
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setPrice($_POST["price"]);		
 		}
 		if(isset($_POST["fromTime"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setFromTime($_POST["fromTime"]);		
 		}
 		if(isset($_POST["toTime"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setToTime($_POST["toTime"]);		
 		}
 		if(isset($_POST["sellerId"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setSellerId($_POST["sellerId"]);
 		}
 		if(isset($_POST["customerId"])){
-			echo "string1";
 			$_SESSION['admin_item_to_update']->setCustomerId($_POST["customerId"]);
 		}
 			$temp_manager_to_updateItem->db_updateItem($_SESSION['admin_item_to_update']);
 	
-	}
+
 	
 	$_SESSION['blue_alert'] = create_alert_blue("Succeffully updated");
 

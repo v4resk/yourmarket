@@ -1,27 +1,26 @@
-<?php ini_set('display_errors', 'on');?>
-<?php  require '../App/check_alert.php' ?>
 <?php require '../App/init.php'; ?>
+<?php require '../App/check_alert.php' ?>
 <?php 
-	$whereClause = "seller_id=" ."\"". $_SESSION['db_user']->getEmail()."\"";
+	$whereClause = "customer_id = \"".$_SESSION['db_user']->getEmail() ."\" ";
 	$itemManager = new db_item_manage($db);
 	$tabItem = $itemManager->getItemTabFromWhere($whereClause);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>My account</title>
+	<title>Purchase History</title>
 	<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="template.css">
+	<link rel="stylesheet" type="text/css" href="template.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 </head>
 <body>
-
 <!-- HEADER -->
-	<div class="headr">
+		<div class="headr">
 		<a href="index.php"><img src="logo.png" height="150" width="200"></a>
 	</div>
 	<div class="row" id="">
@@ -56,52 +55,38 @@
 				</ul>
 			</div>
         </nav>
-	</div>	
-
+	</div>
 <!--NAV-->
-
-	<div class="navigation">
-		<br>
-		<br>
-		<h1 style="text-align: center;">Your Items</h1>
-		<br>
-		<br>
-		
-
+	<div class="navigation" >
+			
 		<div class="card_gr">
-				<?php 
-						for($i=0;$i<sizeof($tabItem);$i++){		
-					 ?>
-
-					<div class="card" style="width: 18rem; border: 1px solid black; box-shadow: 1px; margin-bottom: 10px; margin-left: 10px;">
-				  		<img src="uploads/<?php echo $tabItem[$i]->getPic();?>" class="card-img-top" alt="<?php echo $tabItem[$i]->getPic();?>" width="178" height="200">
-				  		<div class="card-body">
-					    	<h5 class="card-title"><center><STRONG><?php echo $tabItem[$i]->getName(); ?></STRONG></center></h5>
-					    	<p class="card-text"><center><?php echo $tabItem[$i]->getInfo(); ?></center></p>
-					  	</div>
-				  		<ul class="list-group list-group-flush">
-					    <li class="list-group-item">Sell method: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
-					    <li class="list-group-item">Category: <?php echo $tabItem[$i]->getCategory(); ?></li>
-					    <li class="list-group-item">Price: <?php echo $tabItem[$i]->getPrice(); ?></li>
-				  		</ul>
-					  	<div class="card-body">
-					  		<form method="post" action="">
-					  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
-					    	<p><center><button type="submit" class="btn btn-danger" name="deleteItemsUser">Delete</button></center></p>
-					    	</form>
-					  </div>
-
-					</div>
-				<?php }
-					?>
+			<?php 
+					for($i=0;$i<sizeof($tabItem);$i++){		
+				 ?>
+				<div class="card" style="width: 18rem; border: 1px solid black; box-shadow: 1px; margin-bottom: 10px; margin-left: 10px;">
+			  		<img src="uploads/<?php echo $tabItem[$i]->getPic();?>" class="card-img-top" alt="<?php echo $tabItem[$i]->getPic();?>" width="178" height="200">
+			  		<div class="card-body">
+				    	<h5 class="card-title"><STRONG><?php echo $tabItem[$i]->getName(); ?></STRONG></h5>
+				    	<p class="card-text"><?php echo $tabItem[$i]->getInfo(); ?></p>
+				  	</div>
+			  		<ul class="list-group list-group-flush">
+				    <li class="list-group-item">Sell method: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
+				    <li class="list-group-item">Category: <?php echo $tabItem[$i]->getCategory(); ?></li>
+				    <li class="list-group-item">Price: <?php echo $tabItem[$i]->getPrice(); ?></li>
+			  		</ul>
+				  	<div class="card-body">
+				  		<form method="post" action="buyItem.php">
+				  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
+				    	</form>
+				  </div>
+				
+				</div>
+			<?php }
+							?>
 		</div>
-						<p><center>BIN : Buy It Now</center></p>
-					<p><center>BID : Auctions</center></p>
-					<p><center>BO : Best Offer</center></p>
 	</div>
 
 <!--FOOTER-->
-	
 <footer class="site-footer">
 		<div class="container">
 		<div class="row">
@@ -113,7 +98,7 @@
 					<br>
 					HA3 5FB Mondrian Court <br>
 					10 Artisan Place <br>
-					Harrow <br>(  )
+					Harrow <br>
 					Wealdstone
 				</address>
 
@@ -127,11 +112,9 @@
 				<li> <a href="mailto:support@yourmarket.com">Contact</li>
 				<p> support@yourmarket.com</p>
 				<p>+44 7800 987654</p>
-			</ul>
-			
+			</ul>			
 	</div>
 	</div>
 	</footer>
-
 </body>
-</html>  
+</html>
