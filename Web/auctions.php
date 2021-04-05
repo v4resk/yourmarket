@@ -66,7 +66,7 @@
 				    	<p class="card-text"><?php echo $tabItem[$i]->getInfo(); ?></p>
 				  	</div>
 			  		<ul class="list-group list-group-flush">
-				    <li class="list-group-item">Sell methode: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
+				    <li class="list-group-item">Sell method: <?php echo $tabItem[$i]->getSellMeth(); ?> </li>
 				    <li class="list-group-item">Category: <?php echo $tabItem[$i]->getCategory(); ?></li>
 				    <li class="list-group-item">Price: <?php echo $tabItem[$i]->getPrice(); ?></li>
 			  		</ul>

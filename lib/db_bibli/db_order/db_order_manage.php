@@ -77,7 +77,7 @@ class db_order_manage{
 			$itemTab = [];
 			$i = 0;
 			while ($resp = $statment->fetch()) {
-				$itemTab[$i] = new db_item($this->db,(int)$resp['id_order']);
+				$itemTab[$i] = new db_order($this->db,(int)$resp['id_order']);
 				$i++; 
 			}
 			return $itemTab;

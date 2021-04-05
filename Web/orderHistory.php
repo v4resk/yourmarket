@@ -76,12 +76,12 @@
 				    <li class="list-group-item">Id Order : <?php echo $tabOrder[$i]->getIdOrder(); ?> </li>
 				    <li class="list-group-item">Id Item : <?php echo $tabOrder[$i]->getIdItem(); ?></li>
 				    <li class="list-group-item">Email : <?php echo $tabOrder[$i]->getEmail(); ?></li>
+				    <li class="list-group-item">Order Date : <?php echo $tabOrder[$i]->getDate_m(); ?></li>
+				    <li class="list-group-item">Status : <?php echo $tabOrder[$i]->getStatus(); ?></li>
+				    <li class="list-group-item">Price : <?php echo $tabOrder[$i]->getPrice(); ?></li>
+				    <li class="list-group-item">Max Price : <?php echo $tabOrder[$i]->getMaxPrice(); ?></li>
 			  		</ul>
-				  	<div class="card-body">
-				  		<form method="post" action="buyItem.php">
-				  		<input type="hidden" name="id_item" value="<?php echo $tabItem[$i]->getIdItem(); ?>">
-				    	</form>
-				  </div>
+
 				
 				</div>
 			<?php }
